@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Parent;
 
 use App\Repositories\MessageRepository;
 use App\Repositories\MessageThreadRepository;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -129,7 +130,15 @@ class MessageCenterController extends Controller
 
         $messageThread = $this->messageThreadRepository->get($id);
 
-        $messages = auth()->user()->userable->messages($messageThread->id);
+        // Setting up dates
+
+        $from = Carbon::now();
+
+        $from->subMonths(3);
+
+        $to = Carbon::now();
+
+        $messages = $this->messageRepository->getMessages($messageThread->id, $from, $to);
 
         // Mark thread unseen message as seen
 

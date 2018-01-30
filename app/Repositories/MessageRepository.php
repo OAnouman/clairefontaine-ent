@@ -113,6 +113,28 @@ class MessageRepository extends Repository
     }
 
 
+    /**
+     * Get all messages where sent according to a period
+     *
+     * @param int $message_thread_id
+     * @param $from
+     * @param $to
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
+     */
+
+    public function getMessages (int $message_thread_id, $from, $to)
+    {
+
+
+        return Message::where('message_thread_id', $message_thread_id)
+
+            ->whereBetween('created_at', [$from, $to])
+
+            ->latest()
+
+            ->get();
+
+    }
 
 
 }

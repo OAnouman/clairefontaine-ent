@@ -36,26 +36,4 @@ class Message extends Model
 
     }
 
-
-    /**
-     * Get all messages where sent according to a period
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
-     */
-
-    public function scopeGetMessages (int $message_thread_id, $from, $to)
-    {
-
-
-        return $this->where('message_thread_id', $message_thread_id)
-
-                      ->whereBetween('created_at', [$from, $to])
-
-                      ->latest()
-
-                      ->get();
-
-    }
-
-
 }

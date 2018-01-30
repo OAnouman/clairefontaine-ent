@@ -147,7 +147,7 @@ class MessageCenterController extends Controller
 
         $to = Carbon::now();
 
-        $messages = Message::getMessages($messageThread->id, $from, $to);
+        $messages = $this->messageRepository->getMessages($messageThread->id, $from, $to);
 
         // Mark thread unseen message as seen
 

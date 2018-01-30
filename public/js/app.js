@@ -11492,117 +11492,117 @@ axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  */
 
 window.Event = new (function () {
-    function _class() {
-        _classCallCheck(this, _class);
+                            function _class() {
+                                                        _classCallCheck(this, _class);
 
-        this.vue = new Vue();
-    }
+                                                        this.vue = new Vue();
+                            }
 
-    _createClass(_class, [{
-        key: 'fire',
-        value: function fire(event) {
-            var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+                            _createClass(_class, [{
+                                                        key: 'fire',
+                                                        value: function fire(event) {
+                                                                                    var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
 
-            this.vue.$emit(event, data);
-        }
-    }, {
-        key: 'listen',
-        value: function listen(event, callback) {
+                                                                                    this.vue.$emit(event, data);
+                                                        }
+                            }, {
+                                                        key: 'listen',
+                                                        value: function listen(event, callback) {
 
-            this.vue.$on(event, callback);
-        }
-    }]);
+                                                                                    this.vue.$on(event, callback);
+                                                        }
+                            }]);
 
-    return _class;
+                            return _class;
 }())();
 
 Vue.component('breadcrumb', {
 
-    template: '\n   \n        <div class="col-md-12 ">\n\n\n                <ol class="breadcrumb">\n\n\n                   <slot></slot>\n\n\n                </ol>\n\n\n        </div>\n   \n   ',
+                            template: '\n   \n        <div class="col-md-12 ">\n\n\n                <ol class="breadcrumb">\n\n\n                   <slot></slot>\n\n\n                </ol>\n\n\n        </div>\n   \n   ',
 
-    data: function data() {
+                            data: function data() {
 
-        return {};
-    }
+                                                        return {};
+                            }
 });
 
 Vue.component('toggle-menu', {
 
-    template: '\n    \n            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"\n                        :data-target="data_target" aria-expanded="false">\n\n\n                    <span class="sr-only">Toggle navigation</span>\n\n                    <span class="icon-bar"></span>\n\n                    <span class="icon-bar"></span>\n\n                    <span class="icon-bar"></span>\n\n\n            </button>\n    ',
+                            template: '\n    \n            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"\n                        :data-target="data_target" aria-expanded="false">\n\n\n                    <span class="sr-only">Toggle navigation</span>\n\n                    <span class="icon-bar"></span>\n\n                    <span class="icon-bar"></span>\n\n                    <span class="icon-bar"></span>\n\n\n            </button>\n    ',
 
-    props: ['target'],
+                            props: ['target'],
 
-    computed: {
-        data_target: function data_target() {
+                            computed: {
+                                                        data_target: function data_target() {
 
-            return '#' + this.target;
-        }
-    }
+                                                                                    return '#' + this.target;
+                                                        }
+                            }
 
 });
 
 Vue.component('panel-default', {
 
-    props: ['id'],
+                            props: ['id'],
 
-    template: '\n   \n        <div class="panel panel-default" :id="id">\n\n\n            <div class="panel-heading">\n    \n    \n                <h3 class="panel-title">\n                \n                       <slot name="header"></slot>\n                \n                </h3>\n    \n    \n            </div>\n\n            <div class="panel-body">\n    \n    \n                <slot>\n                \n                    Panel Content goes here !\n                \n                </slot>\n    \n    \n            </div>\n\n\n        </div>\n   \n   '
+                            template: '\n   \n        <div class="panel panel-default" :id="id">\n\n\n            <div class="panel-heading">\n    \n    \n                <h3 class="panel-title">\n                \n                       <slot name="header"></slot>\n                \n                </h3>\n    \n    \n            </div>\n\n            <div class="panel-body">\n    \n    \n                <slot>\n                \n                    Panel Content goes here !\n                \n                </slot>\n    \n    \n            </div>\n\n\n        </div>\n   \n   '
 
 });
 
 Vue.component('modal-confirm', {
 
-    template: '\n   \n        \n        <div class="modal fade" :id="ariaLabelled" tabindex="-1" role="dialog" :aria-labelledby="ariaLabelled">\n        \n        \n          <div class="modal-dialog" role="document">\n        \n        \n            <div class="modal-content">\n        \n        \n              <div class="modal-header">\n        \n        \n                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span \n                aria-hidden="true">&times;</span></button>\n        \n                <h4 class="modal-title"> \n                \n                    <slot name="header"></slot>\n                \n                </h4>\n        \n        \n              </div>\n        \n              <div class="modal-body">\n        \n        \n                <p>\n                \n                        \n                        <slot>\n                        \n                               Modal body goes here !!\n                        \n                        </slot>\n                \n                \n                </p>\n        \n        \n              </div>\n        \n              <div class="modal-footer">\n        \n        \n                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>\n\n                    <button @click="confirm" type="button"\n                                        class="btn btn-danger">Confirmer</button>\n        \n        \n              </div>\n        \n        \n            </div><!-- /.modal-content -->\n        \n        \n          </div><!-- /.modal-dialog -->\n        \n        \n        </div><!-- /.modal -->\n        \n        \n   ',
+                            template: '\n   \n        \n        <div class="modal fade" :id="ariaLabelled" tabindex="-1" role="dialog" :aria-labelledby="ariaLabelled">\n        \n        \n          <div class="modal-dialog" role="document">\n        \n        \n            <div class="modal-content">\n        \n        \n              <div class="modal-header">\n        \n        \n                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span \n                aria-hidden="true">&times;</span></button>\n        \n                <h4 class="modal-title"> \n                \n                    <slot name="header"></slot>\n                \n                </h4>\n        \n        \n              </div>\n        \n              <div class="modal-body">\n        \n        \n                <p>\n                \n                        \n                        <slot>\n                        \n                               Modal body goes here !!\n                        \n                        </slot>\n                \n                \n                </p>\n        \n        \n              </div>\n        \n              <div class="modal-footer">\n        \n        \n                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>\n\n                    <button @click="confirm" type="button"\n                                        class="btn btn-danger">Confirmer</button>\n        \n        \n              </div>\n        \n        \n            </div><!-- /.modal-content -->\n        \n        \n          </div><!-- /.modal-dialog -->\n        \n        \n        </div><!-- /.modal -->\n        \n        \n   ',
 
-    data: function data() {
+                            data: function data() {
 
-        return {
+                                                        return {
 
-            ariaLabelled: this.labelledby
+                                                                                    ariaLabelled: this.labelledby
 
-        };
-    },
+                                                        };
+                            },
 
 
-    props: ['labelledby'],
+                            props: ['labelledby'],
 
-    methods: {
-        confirm: function confirm() {
+                            methods: {
+                                                        confirm: function confirm() {
 
-            schoolYearDeleteForm(1);
-        }
-    }
+                                                                                    schoolYearDeleteForm(1);
+                                                        }
+                            }
 
 });
 
 Vue.component('alert-dismiss', {
 
-    props: ['success', 'danger'],
+                            props: ['success', 'danger'],
 
-    template: '\n    \n            \n             <div :class="[isSuccess ? success_class : \'\', isError ? error_class : \'\']" role="alert">\n\n                <button type="button" class="close"\n                        data-dismiss="alert" aria-label="Close"><span\n                            aria-hidden="true">&times;</span></button>\n\n                    <slot>\n                    \n                    \n                        Alert message\n                    \n                    \n                    </slot>\n\n\n            </div>\n    \n    \n    ',
+                            template: '\n    \n            \n             <div :class="[isSuccess ? success_class : \'\', isError ? error_class : \'\']" role="alert">\n\n                <button type="button" class="close"\n                        data-dismiss="alert" aria-label="Close"><span\n                            aria-hidden="true">&times;</span></button>\n\n                    <slot>\n                    \n                    \n                        Alert message\n                    \n                    \n                    </slot>\n\n\n            </div>\n    \n    \n    ',
 
-    computed: {
-        isSuccess: function isSuccess() {
+                            computed: {
+                                                        isSuccess: function isSuccess() {
 
-            return this.success;
-        },
-        isError: function isError() {
+                                                                                    return this.success;
+                                                        },
+                                                        isError: function isError() {
 
-            return this.danger;
-        }
-    },
+                                                                                    return this.danger;
+                                                        }
+                            },
 
-    data: function data() {
+                            data: function data() {
 
-        return {
+                                                        return {
 
-            success_class: 'alert alert-success alert-dismissable fade in',
+                                                                                    success_class: 'alert alert-success alert-dismissable fade in',
 
-            error_class: 'alert alert-danger alert-dismissable fade in'
+                                                                                    error_class: 'alert alert-danger alert-dismissable fade in'
 
-        };
-    },
-    mounted: function mounted() {}
+                                                        };
+                            },
+                            mounted: function mounted() {}
 });
 
 Vue.component('example', __webpack_require__(39));
@@ -11619,716 +11619,716 @@ Vue.component('profile-overview', __webpack_require__(54));
 
 var app = new Vue({
 
-    el: '#app',
+                            el: '#app',
 
-    data: {
+                            data: {
 
-        levelName: '',
+                                                        levelName: '',
 
-        ajaxClassrooms: []
+                                                        ajaxClassrooms: []
 
-    },
+                            },
 
-    methods: {
+                            methods: {
 
-        /**
-         * Submit delete form in index views
-         *
-         * @param event
-         */
-        deleteForm: function deleteForm(event) {
+                                                        /**
+                                                         * Submit delete form in index views
+                                                         *
+                                                         * @param event
+                                                         */
+                                                        deleteForm: function deleteForm(event) {
 
-            // Delete link
+                                                                                    // Delete link
 
-            var deleteLink = event.currentTarget;
+                                                                                    var deleteLink = event.currentTarget;
 
-            // Fetch elt child and retrive the form related
+                                                                                    // Fetch elt child and retrive the form related
 
-            var childs = deleteLink.childNodes;
+                                                                                    var childs = deleteLink.childNodes;
 
-            var form = void 0;
+                                                                                    var form = void 0;
 
-            childs.forEach(function (e) {
+                                                                                    childs.forEach(function (e) {
 
-                if (e.tagName === "FORM") form = e;
-            });
+                                                                                                                if (e.tagName === "FORM") form = e;
+                                                                                    });
 
-            // Submit form
+                                                                                    // Submit form
 
-            if (confirm('Confirmer la suppression ?')) form.submit();
-        },
-        sendMessageToStudent: function sendMessageToStudent(event) {
+                                                                                    if (confirm('Confirmer la suppression ?')) form.submit();
+                                                        },
+                                                        sendMessageToStudent: function sendMessageToStudent(event) {
 
-            // Get <a> elt
+                                                                                    // Get <a> elt
 
-            var sendMessageLinkElt = event.currentTarget;
+                                                                                    var sendMessageLinkElt = event.currentTarget;
 
-            var form = $(sendMessageLinkElt).find('form')[0];
+                                                                                    var form = $(sendMessageLinkElt).find('form')[0];
 
-            form.submit();
-        },
-        syncClass: function syncClass(event) {
+                                                                                    form.submit();
+                                                        },
+                                                        syncClass: function syncClass(event) {
 
-            //Class name input
+                                                                                    //Class name input
 
-            $('#name')[0].value = event.currentTarget.value;
-        },
+                                                                                    $('#name')[0].value = event.currentTarget.value;
+                                                        },
 
 
-        /**
-         * Just go to the previous page
-         *
-         */
-        back: function back() {
+                                                        /**
+                                                         * Just go to the previous page
+                                                         *
+                                                         */
+                                                        back: function back() {
 
-            history.back();
-        },
+                                                                                    history.back();
+                                                        },
 
 
-        /**
-         *  Trigger when student emergency
-         *
-         *  people modal form is submited
-         *
-         */
+                                                        /**
+                                                         *  Trigger when student emergency
+                                                         *
+                                                         *  people modal form is submited
+                                                         *
+                                                         */
 
-        submitEmergencyForm: function submitEmergencyForm() {
+                                                        submitEmergencyForm: function submitEmergencyForm() {
 
-            // Submit form
+                                                                                    // Submit form
 
-            var form = $('#emergencyContactForm');
+                                                                                    var form = $('#emergencyContactForm');
 
-            // We call onEmergencyFormSubmit with
+                                                                                    // We call onEmergencyFormSubmit with
 
-            // the form as parameter
+                                                                                    // the form as parameter
 
-            this.onEmergencyFormSubmit(form[0]);
-        },
-        onEmergencyFormSubmit: function onEmergencyFormSubmit(form) {
+                                                                                    this.onEmergencyFormSubmit(form[0]);
+                                                        },
+                                                        onEmergencyFormSubmit: function onEmergencyFormSubmit(form) {
 
-            // Retrieve form inputs values
+                                                                                    // Retrieve form inputs values
 
-            var data = this.objectifyForm(form);
+                                                                                    var data = this.objectifyForm(form);
 
-            // Executing ajax request with form
+                                                                                    // Executing ajax request with form
 
-            // inputs values
+                                                                                    // inputs values
 
-            console.log(data);
+                                                                                    console.log(data);
 
-            axios.post('/ajax/add_emergency_contact', data).then(function (response) {
+                                                                                    axios.post('/ajax/add_emergency_contact', data).then(function (response) {
 
-                // Then promise to handle request
+                                                                                                                // Then promise to handle request
 
-                // success execution
+                                                                                                                // success execution
 
 
-                // Close form modal
+                                                                                                                // Close form modal
 
-                $('#emergencyFormModal').modal('hide');
+                                                                                                                $('#emergencyFormModal').modal('hide');
 
-                // Refreshing emergency people section
+                                                                                                                // Refreshing emergency people section
 
 
-                if (location.href.search('admin_parent') !== -1) axios.get('/admin_parent/profile/' + data.student_id).then(function (response) {
-                    return $('#emergency').html(response.data);
-                });else axios.get('/admin/student/' + data.student_id).then(function (response) {
-                    return $('#emergency').html(response.data);
-                });
-            }).catch(function (error) {
+                                                                                                                if (location.href.search('admin_parent') !== -1) axios.get('/admin_parent/profile/' + data.student_id).then(function (response) {
+                                                                                                                                            return $('#emergency').html(response.data);
+                                                                                                                });else axios.get('/admin/student/' + data.student_id).then(function (response) {
+                                                                                                                                            return $('#emergency').html(response.data);
+                                                                                                                });
+                                                                                    }).catch(function (error) {
 
-                // Catch promise to handle
+                                                                                                                // Catch promise to handle
 
-                // request failure. If errors occur
+                                                                                                                // request failure. If errors occur
 
-                // add has-error bs class and
+                                                                                                                // add has-error bs class and
 
-                // display them with help-block
+                                                                                                                // display them with help-block
 
 
-                // Retrieve each inputs <div>
+                                                                                                                // Retrieve each inputs <div>
 
-                var nameDiv = $('#name-div');
+                                                                                                                var nameDiv = $('#name-div');
 
-                var linkDiv = $('#link-div');
+                                                                                                                var linkDiv = $('#link-div');
 
-                var phonesDiv = $('#phone-div');
+                                                                                                                var phonesDiv = $('#phone-div');
 
-                // Errors message
+                                                                                                                // Errors message
 
-                var messages = error.response.data;
+                                                                                                                var messages = error.response.data;
 
-                nameDiv.addClass('has-error');
+                                                                                                                nameDiv.addClass('has-error');
 
-                nameDiv.append('<span class="help-block"><strong>' + messages.name[0] + ' </strong></span>');
+                                                                                                                nameDiv.append('<span class="help-block"><strong>' + messages.name[0] + ' </strong></span>');
 
-                linkDiv.addClass('has-error');
+                                                                                                                linkDiv.addClass('has-error');
 
-                linkDiv.append('<span class="help-block"><strong>' + messages.link[0] + ' </strong></span>');
+                                                                                                                linkDiv.append('<span class="help-block"><strong>' + messages.link[0] + ' </strong></span>');
 
-                // Could be removed 'cause inputTags doesn't recognize it
+                                                                                                                // Could be removed 'cause inputTags doesn't recognize it
 
-                phonesDiv.addClass('has-error');
+                                                                                                                phonesDiv.addClass('has-error');
 
-                phonesDiv.append('<span class="help-block"><strong>' + messages.phones[0] + ' </strong></span>');
-            });
-        },
+                                                                                                                phonesDiv.append('<span class="help-block"><strong>' + messages.phones[0] + ' </strong></span>');
+                                                                                    });
+                                                        },
 
 
-        /**
-         * Use too hide / show form on
-         *
-         * Liste de classe form
-         *
-         * @param event
-         *
-         * @deprecated
-         */
+                                                        /**
+                                                         * Use too hide / show form on
+                                                         *
+                                                         * Liste de classe form
+                                                         *
+                                                         * @param event
+                                                         *
+                                                         * @deprecated
+                                                         */
 
-        hideShow: function hideShow(event) {
+                                                        hideShow: function hideShow(event) {
 
-            var button = event.currentTarget;
+                                                                                    var button = event.currentTarget;
 
-            var form = $('#classroom-student-form');
+                                                                                    var form = $('#classroom-student-form');
 
-            if ($(form).css('display') === 'block') {
+                                                                                    if ($(form).css('display') === 'block') {
 
-                $(form).fadeOut('fast', function () {
-                    return $(form).css('display', 'none');
-                });
+                                                                                                                $(form).fadeOut('fast', function () {
+                                                                                                                                            return $(form).css('display', 'none');
+                                                                                                                });
 
-                $(button).html('Ajouter');
-            } else {
+                                                                                                                $(button).html('Ajouter');
+                                                                                    } else {
 
-                $(form).fadeIn('fast', function () {
-                    return $(form).css('display', 'block');
-                });
+                                                                                                                $(form).fadeIn('fast', function () {
+                                                                                                                                            return $(form).css('display', 'block');
+                                                                                                                });
 
-                $(button).html('Masquer');
-            }
-        },
-        onClassroomSelect: function onClassroomSelect() {
+                                                                                                                $(button).html('Masquer');
+                                                                                    }
+                                                        },
+                                                        onClassroomSelect: function onClassroomSelect() {
 
-            axios.get('/admin/classroom_student?class_to_show=' + $('#class_to_show').selectpicker('val')).then(function (response) {
+                                                                                    axios.get('/admin/classroom_student?class_to_show=' + $('#class_to_show').selectpicker('val')).then(function (response) {
 
-                $('#student_list').html(response.data);
+                                                                                                                $('#student_list').html(response.data);
 
-                var currentSite = window.location.hostname;
+                                                                                                                var currentSite = window.location.hostname;
 
-                var href = "http://" + currentSite + '/admin/classroom_student/' + $('#class_to_show').val();
+                                                                                                                var href = "http://" + currentSite + '/admin/classroom_student/' + $('#class_to_show').val();
 
-                $('#printList').prop('href', href);
-            });
-        },
-        onClassroomStudentFormSubmit: function onClassroomStudentFormSubmit(event) {
+                                                                                                                $('#printList').prop('href', href);
+                                                                                    });
+                                                        },
+                                                        onClassroomStudentFormSubmit: function onClassroomStudentFormSubmit(event) {
 
-            var form = event.currentTarget;
+                                                                                    var form = event.currentTarget;
 
-            var student_id = form.elements.student_id.value;
+                                                                                    var student_id = form.elements.student_id.value;
 
-            var classroom_id = form.elements.classroom_id.value;
+                                                                                    var classroom_id = form.elements.classroom_id.value;
 
-            var redouble = form.elements.redouble.checked;
+                                                                                    var redouble = form.elements.redouble.checked;
 
-            axios.post('/admin/classroom_student', {
+                                                                                    axios.post('/admin/classroom_student', {
 
-                student_id: student_id,
+                                                                                                                student_id: student_id,
 
-                classroom_id: classroom_id,
+                                                                                                                classroom_id: classroom_id,
 
-                redouble: redouble
+                                                                                                                redouble: redouble
 
-            }).then(function (response) {
+                                                                                    }).then(function (response) {
 
-                var displayMessageDiv = $('#display_message');
+                                                                                                                var displayMessageDiv = $('#display_message');
 
-                // displayMessageDiv.empty();
+                                                                                                                // displayMessageDiv.empty();
 
-                displayMessageDiv.html('\n                    \n                          \n                     <div class="alert alert-success alert-dismissable fade in" role="alert">\n        \n                        <button type="button" class="close"\n                                data-dismiss="alert" aria-label="Close"><span\n                                    aria-hidden="true">&times;</span></button>\n        \n                            ' + response.data + '\n        \n        \n                    </div>');
+                                                                                                                displayMessageDiv.html('\n                    \n                          \n                     <div class="alert alert-success alert-dismissable fade in" role="alert">\n        \n                        <button type="button" class="close"\n                                data-dismiss="alert" aria-label="Close"><span\n                                    aria-hidden="true">&times;</span></button>\n        \n                            ' + response.data + '\n        \n        \n                    </div>');
 
-                axios.get('/admin/classroom_student?class_to_show=' + $('#class_to_show').selectpicker('val')).then(function (response) {
+                                                                                                                axios.get('/admin/classroom_student?class_to_show=' + $('#class_to_show').selectpicker('val')).then(function (response) {
 
-                    $('#student_list').html(response.data);
+                                                                                                                                            $('#student_list').html(response.data);
 
-                    var currentSite = window.location.hostname;
+                                                                                                                                            var currentSite = window.location.hostname;
 
-                    var href = "http://" + currentSite + '/admin/classroom_student/' + $('#class_to_show').val();
+                                                                                                                                            var href = "http://" + currentSite + '/admin/classroom_student/' + $('#class_to_show').val();
 
-                    $('#printList').prop('href', href);
-                });
-            }).catch(function (error) {
+                                                                                                                                            $('#printList').prop('href', href);
+                                                                                                                });
+                                                                                    }).catch(function (error) {
 
-                $('#display_message').append('\n                    \n                          \n                     <div class="alert alert-danger alert-dismissable fade in" role="alert">\n        \n                        <button type="button" class="close"\n                                data-dismiss="alert" aria-label="Close"><span\n                                    aria-hidden="true">&times;</span></button>\n        \n                            Une erreur est survenue lors de l\'ajout !\n        \n        \n                    </div>\n        \n                    \n                    ');
-            });
-        },
-        hideShowNew: function hideShowNew() {
+                                                                                                                $('#display_message').append('\n                    \n                          \n                     <div class="alert alert-danger alert-dismissable fade in" role="alert">\n        \n                        <button type="button" class="close"\n                                data-dismiss="alert" aria-label="Close"><span\n                                    aria-hidden="true">&times;</span></button>\n        \n                            Une erreur est survenue lors de l\'ajout !\n        \n        \n                    </div>\n        \n                    \n                    ');
+                                                                                    });
+                                                        },
+                                                        hideShowNew: function hideShowNew() {
 
-            $('#toggle').find('div.panel-body').toggle('fast', function () {
+                                                                                    $('#toggle').find('div.panel-body').toggle('fast', function () {
 
-                var toggleButton = $('.toggle-button');
+                                                                                                                var toggleButton = $('.toggle-button');
 
-                if ($(toggleButton).hasClass('glyphicon-eye-close')) {
+                                                                                                                if ($(toggleButton).hasClass('glyphicon-eye-close')) {
 
-                    toggleButton.removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
-                } else {
+                                                                                                                                            toggleButton.removeClass('glyphicon-eye-close').addClass('glyphicon-eye-open');
+                                                                                                                } else {
 
-                    toggleButton.removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
-                }
-            });
-        },
+                                                                                                                                            toggleButton.removeClass('glyphicon-eye-open').addClass('glyphicon-eye-close');
+                                                                                                                }
+                                                                                    });
+                                                        },
 
 
-        /**
-         * Transform a given form value
-         *
-         * to an object
-         *
-         * @param form
-         *
-         * @returns {{}}
-         */
+                                                        /**
+                                                         * Transform a given form value
+                                                         *
+                                                         * to an object
+                                                         *
+                                                         * @param form
+                                                         *
+                                                         * @returns {{}}
+                                                         */
 
-        objectifyForm: function objectifyForm(form) {
+                                                        objectifyForm: function objectifyForm(form) {
 
-            var objectForm = {};
+                                                                                    var objectForm = {};
 
-            var jsonForm = $(form).serializeArray();
+                                                                                    var jsonForm = $(form).serializeArray();
 
-            $.each(jsonForm, function () {
+                                                                                    $.each(jsonForm, function () {
 
-                if (objectForm[this.name]) {
+                                                                                                                if (objectForm[this.name]) {
 
-                    if (!objectForm[this.name].push) {
+                                                                                                                                            if (!objectForm[this.name].push) {
 
-                        objectForm[this.name] = [objectForm[this.name]];
-                    }
+                                                                                                                                                                        objectForm[this.name] = [objectForm[this.name]];
+                                                                                                                                            }
 
-                    objectForm[this.name].push(this.value || '');
-                } else {
+                                                                                                                                            objectForm[this.name].push(this.value || '');
+                                                                                                                } else {
 
-                    objectForm[this.name] = this.value || '';
-                }
-            });
+                                                                                                                                            objectForm[this.name] = this.value || '';
+                                                                                                                }
+                                                                                    });
 
-            return objectForm;
-        },
-        submitEvaluationForm: function submitEvaluationForm() {
+                                                                                    return objectForm;
+                                                        },
+                                                        submitEvaluationForm: function submitEvaluationForm() {
 
-            var form = $('#evaluationForm')[0];
+                                                                                    var form = $('#evaluationForm')[0];
 
-            var data = this.objectifyForm(form);
+                                                                                    var data = this.objectifyForm(form);
 
-            axios.post('/admin_teacher/evaluation', data).then(function (response) {
+                                                                                    axios.post('/admin_teacher/evaluation', data).then(function (response) {
 
-                // Destroy tooltip
+                                                                                                                // Destroy tooltip
 
-                $('div#evaluation_date').find('input#evaluation_date').tooltip('destroy');
+                                                                                                                $('div#evaluation_date').find('input#evaluation_date').tooltip('destroy');
 
-                $('div#classroom_id').find('div.btn-group').tooltip('destroy');
+                                                                                                                $('div#classroom_id').find('div.btn-group').tooltip('destroy');
 
-                $('div#school_year_period_id').find('div.btn-group').tooltip('destroy');
+                                                                                                                $('div#school_year_period_id').find('div.btn-group').tooltip('destroy');
 
-                $('div#subject_id').find('div.btn-group').tooltip('destroy');
+                                                                                                                $('div#subject_id').find('div.btn-group').tooltip('destroy');
 
-                $('div#coefficient').find('input#coefficient').tooltip('destroy');
+                                                                                                                $('div#coefficient').find('input#coefficient').tooltip('destroy');
 
-                location.reload();
-            }).catch(function (errors) {
+                                                                                                                location.reload();
+                                                                                    }).catch(function (errors) {
 
-                // Set tooltip with errors message
+                                                                                                                // Set tooltip with errors message
 
-                var messages = errors.response.data;
+                                                                                                                var messages = errors.response.data;
 
-                if (messages.evaluation_date !== undefined) {
+                                                                                                                if (messages.evaluation_date !== undefined) {
 
-                    $(form).find('div#evaluation_date').addClass('has-error').find('input#evaluation_date').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.evaluation_date[0]).tooltip({ trigger: "hover" });
-                } else {
+                                                                                                                                            $(form).find('div#evaluation_date').addClass('has-error').find('input#evaluation_date').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.evaluation_date[0]).tooltip({ trigger: "hover" });
+                                                                                                                } else {
 
-                    if ($(form).find('div#evaluation_date').hasClass('has-error')) {
+                                                                                                                                            if ($(form).find('div#evaluation_date').hasClass('has-error')) {
 
-                        $(form).find('div#evaluation_date').removeClass('has-error').find('input#evaluation_date').tooltip('destroy');
-                    }
-                }
+                                                                                                                                                                        $(form).find('div#evaluation_date').removeClass('has-error').find('input#evaluation_date').tooltip('destroy');
+                                                                                                                                            }
+                                                                                                                }
 
-                if (messages.classroom_id !== undefined) {
+                                                                                                                if (messages.classroom_id !== undefined) {
 
-                    $(form).find('div#classroom_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.classroom_id[0]).tooltip();
-                } else {
+                                                                                                                                            $(form).find('div#classroom_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.classroom_id[0]).tooltip();
+                                                                                                                } else {
 
-                    if ($(form).find('div#classroom_id').hasClass('has-error')) {
+                                                                                                                                            if ($(form).find('div#classroom_id').hasClass('has-error')) {
 
-                        $(form).find('div#classroom_id').removeClass('has-error').find('div.btn-group').tooltip('destroy');
-                    }
-                }
+                                                                                                                                                                        $(form).find('div#classroom_id').removeClass('has-error').find('div.btn-group').tooltip('destroy');
+                                                                                                                                            }
+                                                                                                                }
 
-                if (messages.school_year_period_id !== undefined) {
+                                                                                                                if (messages.school_year_period_id !== undefined) {
 
-                    $(form).find('div#school_year_period_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.school_year_period_id[0]).tooltip({ trigger: "hover" });
-                } else {
+                                                                                                                                            $(form).find('div#school_year_period_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.school_year_period_id[0]).tooltip({ trigger: "hover" });
+                                                                                                                } else {
 
-                    if ($(form).find('div#school_year_period_id').hasClass('has-error')) {
+                                                                                                                                            if ($(form).find('div#school_year_period_id').hasClass('has-error')) {
 
-                        $(form).find('div#school_year_period_id').removeClass('has-error').find('div.btn-group').tooltip('destroy');
-                    }
-                }
+                                                                                                                                                                        $(form).find('div#school_year_period_id').removeClass('has-error').find('div.btn-group').tooltip('destroy');
+                                                                                                                                            }
+                                                                                                                }
 
-                if (messages.subject_id !== undefined) {
+                                                                                                                if (messages.subject_id !== undefined) {
 
-                    $(form).find('div#subject_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.subject_id[0]).tooltip({ trigger: "hover" });
-                } else {
+                                                                                                                                            $(form).find('div#subject_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.subject_id[0]).tooltip({ trigger: "hover" });
+                                                                                                                } else {
 
-                    if ($(form).find('div#subject_id').hasClass('has-error')) {
+                                                                                                                                            if ($(form).find('div#subject_id').hasClass('has-error')) {
 
-                        $(form).find('div#subject_id').removeClass('has-error').find('div.btn-group').tooltip('tooltip');
-                    }
-                }
+                                                                                                                                                                        $(form).find('div#subject_id').removeClass('has-error').find('div.btn-group').tooltip('tooltip');
+                                                                                                                                            }
+                                                                                                                }
 
-                if (messages.coefficient !== undefined) {
+                                                                                                                if (messages.coefficient !== undefined) {
 
-                    $(form).find('div#coefficient').addClass('has-error').find('input#coefficient').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.coefficient[0]).tooltip({ trigger: "hover" });
-                } else {
+                                                                                                                                            $(form).find('div#coefficient').addClass('has-error').find('input#coefficient').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.coefficient[0]).tooltip({ trigger: "hover" });
+                                                                                                                } else {
 
-                    if ($(form).find('div#coefficient').hasClass('has-error')) {
+                                                                                                                                            if ($(form).find('div#coefficient').hasClass('has-error')) {
 
-                        $(form).find('div#coefficient').removeClass('has-error').find('input#coefficient').tooltip('destroy');
-                    }
-                }
-            });
-        },
-        submitEvaluationEditForm: function submitEvaluationEditForm(event) {
+                                                                                                                                                                        $(form).find('div#coefficient').removeClass('has-error').find('input#coefficient').tooltip('destroy');
+                                                                                                                                            }
+                                                                                                                }
+                                                                                    });
+                                                        },
+                                                        submitEvaluationEditForm: function submitEvaluationEditForm(event) {
 
-            var button = event.currentTarget;
+                                                                                    var button = event.currentTarget;
 
-            var form = $(button).parent().parent().find('div.modal-body form')[0];
+                                                                                    var form = $(button).parent().parent().find('div.modal-body form')[0];
 
-            var data = this.objectifyForm(form);
+                                                                                    var data = this.objectifyForm(form);
 
-            axios.patch('/admin_teacher/evaluation/' + data.id, data).then(function (response) {
+                                                                                    axios.patch('/admin_teacher/evaluation/' + data.id, data).then(function (response) {
 
-                $('div#display_message').append(displayMessageBlock);
+                                                                                                                $('div#display_message').append(displayMessageBlock);
 
-                // Destroy tooltip
+                                                                                                                // Destroy tooltip
 
-                $(form).find('div#evaluation_date').find('input#evaluation_date').tooltip('destroy');
+                                                                                                                $(form).find('div#evaluation_date').find('input#evaluation_date').tooltip('destroy');
 
-                $(form).find('div#classroom_id').find('div.btn-group').tooltip('destroy');
+                                                                                                                $(form).find('div#classroom_id').find('div.btn-group').tooltip('destroy');
 
-                $(form).find('div#school_year_period_id').find('div.btn-group').tooltip('destroy');
+                                                                                                                $(form).find('div#school_year_period_id').find('div.btn-group').tooltip('destroy');
 
-                $(form).find('div#subject_id').find('div.btn-group').tooltip('destroy');
+                                                                                                                $(form).find('div#subject_id').find('div.btn-group').tooltip('destroy');
 
-                $(form).find('div#coefficient').find('input#coefficient').tooltip('destroy');
+                                                                                                                $(form).find('div#coefficient').find('input#coefficient').tooltip('destroy');
 
-                // Close modal
+                                                                                                                // Close modal
 
-                var modalSelector = '#evaluationEditForm' + data.id;
+                                                                                                                var modalSelector = '#evaluationEditForm' + data.id;
 
-                $(modalSelector).modal('hide');
+                                                                                                                $(modalSelector).modal('hide');
 
-                // Roload page
+                                                                                                                // Roload page
 
-                location.reload();
-            }).catch(function (errors) {
+                                                                                                                location.reload();
+                                                                                    }).catch(function (errors) {
 
-                // Set tooltip with errors message
+                                                                                                                // Set tooltip with errors message
 
-                var messages = errors.response.data;
+                                                                                                                var messages = errors.response.data;
 
-                if (messages.evaluation_date !== undefined) {
+                                                                                                                if (messages.evaluation_date !== undefined) {
 
-                    $(form).find('div#evaluation_date').addClass('has-error').find('input#evaluation_date').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.evaluation_date[0]).tooltip({ trigger: "hover" });
-                } else {
+                                                                                                                                            $(form).find('div#evaluation_date').addClass('has-error').find('input#evaluation_date').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.evaluation_date[0]).tooltip({ trigger: "hover" });
+                                                                                                                } else {
 
-                    if ($(form).find('div#evaluation_date').hasClass('has-error')) {
+                                                                                                                                            if ($(form).find('div#evaluation_date').hasClass('has-error')) {
 
-                        $(form).find('div#evaluation_date').removeClass('has-error').find('input#evaluation_date').tooltip('destroy');
-                    }
-                }
+                                                                                                                                                                        $(form).find('div#evaluation_date').removeClass('has-error').find('input#evaluation_date').tooltip('destroy');
+                                                                                                                                            }
+                                                                                                                }
 
-                if (messages.classroom_id !== undefined) {
+                                                                                                                if (messages.classroom_id !== undefined) {
 
-                    $(form).find('div#classroom_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.classroom_id[0]).tooltip();
-                } else {
+                                                                                                                                            $(form).find('div#classroom_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.classroom_id[0]).tooltip();
+                                                                                                                } else {
 
-                    if ($(form).find('div#classroom_id').hasClass('has-error')) {
+                                                                                                                                            if ($(form).find('div#classroom_id').hasClass('has-error')) {
 
-                        $(form).find('div#classroom_id').removeClass('has-error').find('div.btn-group').tooltip('destroy');
-                    }
-                }
+                                                                                                                                                                        $(form).find('div#classroom_id').removeClass('has-error').find('div.btn-group').tooltip('destroy');
+                                                                                                                                            }
+                                                                                                                }
 
-                if (messages.school_year_period_id !== undefined) {
+                                                                                                                if (messages.school_year_period_id !== undefined) {
 
-                    $(form).find('div#school_year_period_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.school_year_period_id[0]).tooltip({ trigger: "hover" });
-                } else {
+                                                                                                                                            $(form).find('div#school_year_period_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.school_year_period_id[0]).tooltip({ trigger: "hover" });
+                                                                                                                } else {
 
-                    if ($(form).find('div#school_year_period_id').hasClass('has-error')) {
+                                                                                                                                            if ($(form).find('div#school_year_period_id').hasClass('has-error')) {
 
-                        $(form).find('div#school_year_period_id').removeClass('has-error').find('div.btn-group').tooltip('destroy');
-                    }
-                }
+                                                                                                                                                                        $(form).find('div#school_year_period_id').removeClass('has-error').find('div.btn-group').tooltip('destroy');
+                                                                                                                                            }
+                                                                                                                }
 
-                if (messages.subject_id !== undefined) {
+                                                                                                                if (messages.subject_id !== undefined) {
 
-                    $(form).find('div#subject_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.subject_id[0]).tooltip({ trigger: "hover" });
-                } else {
+                                                                                                                                            $(form).find('div#subject_id').addClass('has-error').find('div.btn-group').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.subject_id[0]).tooltip({ trigger: "hover" });
+                                                                                                                } else {
 
-                    if ($(form).find('div#subject_id').hasClass('has-error')) {
+                                                                                                                                            if ($(form).find('div#subject_id').hasClass('has-error')) {
 
-                        $(form).find('div#subject_id').removeClass('has-error').find('div.btn-group').tooltip('tooltip');
-                    }
-                }
+                                                                                                                                                                        $(form).find('div#subject_id').removeClass('has-error').find('div.btn-group').tooltip('tooltip');
+                                                                                                                                            }
+                                                                                                                }
 
-                if (messages.coefficient !== undefined) {
+                                                                                                                if (messages.coefficient !== undefined) {
 
-                    $(form).find('div#coefficient').addClass('has-error').find('input#coefficient').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.coefficient[0]).tooltip({ trigger: "hover" });
-                } else {
+                                                                                                                                            $(form).find('div#coefficient').addClass('has-error').find('input#coefficient').attr('data-toggle', 'tooltip').attr('data-placement', 'top').attr('title', messages.coefficient[0]).tooltip({ trigger: "hover" });
+                                                                                                                } else {
 
-                    if ($(form).find('div#coefficient').hasClass('has-error')) {
+                                                                                                                                            if ($(form).find('div#coefficient').hasClass('has-error')) {
 
-                        $(form).find('div#coefficient').removeClass('has-error').find('input#coefficient').tooltip('destroy');
-                    }
-                }
-            });
-        },
-        submitEvaluationGrade: function submitEvaluationGrade(event) {
-            var _this = this;
+                                                                                                                                                                        $(form).find('div#coefficient').removeClass('has-error').find('input#coefficient').tooltip('destroy');
+                                                                                                                                            }
+                                                                                                                }
+                                                                                    });
+                                                        },
+                                                        submitEvaluationGrade: function submitEvaluationGrade(event) {
+                                                                                    var _this = this;
 
-            var button = event.currentTarget;
+                                                                                    var button = event.currentTarget;
 
-            $(button).button('loading');
+                                                                                    $(button).button('loading');
 
-            var forms = $('.list-group form');
+                                                                                    var forms = $('.list-group form');
 
-            $.each(forms, function (index, element) {
+                                                                                    $.each(forms, function (index, element) {
 
-                var data = _this.objectifyForm(element);
+                                                                                                                var data = _this.objectifyForm(element);
 
-                var pElt = $(element).parent().parent().find('p span.icon');
+                                                                                                                var pElt = $(element).parent().parent().find('p span.icon');
 
-                // Check if it's a new record or if we have
+                                                                                                                // Check if it's a new record or if we have
 
-                // to update an older one
+                                                                                                                // to update an older one
 
-                if (data.id === '') {
+                                                                                                                if (data.id === '') {
 
-                    // New record -> save
+                                                                                                                                            // New record -> save
 
-                    // Make ajax post request
+                                                                                                                                            // Make ajax post request
 
-                    // to store grades
+                                                                                                                                            // to store grades
 
-                    axios.post('/admin_teacher/grade', data).then(function (response) {
+                                                                                                                                            axios.post('/admin_teacher/grade', data).then(function (response) {
 
-                        // Remove error and Add ok glyph if success
+                                                                                                                                                                        // Remove error and Add ok glyph if success
 
-                        $(pElt).empty().html('\n                                \n                                    <span class="pull-right glyphicon glyphicon-ok text-success">\n                                    </span>\n                                \n                                ');
+                                                                                                                                                                        $(pElt).empty().html('\n                                \n                                    <span class="pull-right glyphicon glyphicon-ok text-success">\n                                    </span>\n                                \n                                ');
 
-                        // Set id field value
+                                                                                                                                                                        // Set id field value
 
-                        // to be able to update grade just
+                                                                                                                                                                        // to be able to update grade just
 
-                        // after creation
+                                                                                                                                                                        // after creation
 
-                        $(element).find('input#id').val(response.data.id);
+                                                                                                                                                                        $(element).find('input#id').val(response.data.id);
 
-                        // Remove error class
+                                                                                                                                                                        // Remove error class
 
-                        if ($(element).find('input#value').parent().parent().hasClass('has-error')) {
+                                                                                                                                                                        if ($(element).find('input#value').parent().parent().hasClass('has-error')) {
 
-                            $(element).find('input#value').parent().parent().removeClass('has-error');
+                                                                                                                                                                                                    $(element).find('input#value').parent().parent().removeClass('has-error');
 
-                            $(element).find('input#value').removeAttr('data-toggle').removeAttr('title').tooltip('destroy');
-                        }
+                                                                                                                                                                                                    $(element).find('input#value').removeAttr('data-toggle').removeAttr('title').tooltip('destroy');
+                                                                                                                                                                        }
 
-                        if ($(element).find('input#teacher_assessment').hasClass('has-error')) {
+                                                                                                                                                                        if ($(element).find('input#teacher_assessment').hasClass('has-error')) {
 
-                            $(element).find('input#teacher_assessment').parent().parent().removeClass('has-error');
+                                                                                                                                                                                                    $(element).find('input#teacher_assessment').parent().parent().removeClass('has-error');
 
-                            $(element).find('input#teacher_assessment').removeAttr('data-toggle').removeAttr('title').tooltip('destroy');
-                        }
-                    }).catch(function (errors) {
+                                                                                                                                                                                                    $(element).find('input#teacher_assessment').removeAttr('data-toggle').removeAttr('title').tooltip('destroy');
+                                                                                                                                                                        }
+                                                                                                                                            }).catch(function (errors) {
 
-                        var messages = errors.response.data;
+                                                                                                                                                                        var messages = errors.response.data;
 
-                        // Add error glyph if failed
+                                                                                                                                                                        // Add error glyph if failed
 
-                        $(pElt).empty().html('\n                                \n                                    <span class="pull-right glyphicon glyphicon-remove text-danger">\n                                    </span>\n                                \n                                ');
+                                                                                                                                                                        $(pElt).empty().html('\n                                \n                                    <span class="pull-right glyphicon glyphicon-remove text-danger">\n                                    </span>\n                                \n                                ');
 
-                        // Notify the error
+                                                                                                                                                                        // Notify the error
 
-                        if (messages.value !== undefined) {
+                                                                                                                                                                        if (messages.value !== undefined) {
 
-                            $(element).find('input#value').parent().parent().addClass('has-error');
+                                                                                                                                                                                                    $(element).find('input#value').parent().parent().addClass('has-error');
 
-                            $(element).find('input#value').attr('data-toggle', 'tooltip').attr('title', messages.value).attr('data-placement', 'top').tooltip('trigger', 'hover');
-                        } else {
+                                                                                                                                                                                                    $(element).find('input#value').attr('data-toggle', 'tooltip').attr('title', messages.value).attr('data-placement', 'top').tooltip('trigger', 'hover');
+                                                                                                                                                                        } else {
 
-                            if ($(element).find('input#value').hasClass('has-error')) {
+                                                                                                                                                                                                    if ($(element).find('input#value').hasClass('has-error')) {
 
-                                $(element).find('input#value').parent().parent().removeClass('has-error');
+                                                                                                                                                                                                                                $(element).find('input#value').parent().parent().removeClass('has-error');
 
-                                $(element).find('input#value').removeAttr('data-toggle').removeAttr('data-placement').removeAttr('title').tooltip('destroy');
+                                                                                                                                                                                                                                $(element).find('input#value').removeAttr('data-toggle').removeAttr('data-placement').removeAttr('title').tooltip('destroy');
+                                                                                                                                                                                                    }
+                                                                                                                                                                        }
+                                                                                                                                            });
+                                                                                                                } else // Older one -> update
+                                                                                                                                            {
+
+                                                                                                                                                                        // Make ajax patch request
+
+                                                                                                                                                                        // to update grades
+
+                                                                                                                                                                        axios.patch('/admin_teacher/grade/' + data.id, data).then(function (response) {
+
+                                                                                                                                                                                                    // Add ok glyph if success
+
+                                                                                                                                                                                                    $(pElt).empty().html('\n                                \n                                    <span class="pull-right glyphicon glyphicon-ok text-primary">\n                                    </span>\n                                \n                                ');
+
+                                                                                                                                                                                                    // Remove error class
+
+                                                                                                                                                                                                    if ($(element).find('input#value').parent().parent().hasClass('has-error')) {
+
+                                                                                                                                                                                                                                $(element).find('input#value').parent().parent().removeClass('has-error');
+
+                                                                                                                                                                                                                                $(element).find('input#value').removeAttr('data-toggle').removeAttr('data-placement').removeAttr('title').tooltip('destroy');
+                                                                                                                                                                                                    }
+
+                                                                                                                                                                                                    if ($(element).find('input#teacher_assessment').hasClass('has-error')) {
+
+                                                                                                                                                                                                                                $(element).find('input#teacher_assessment').parent().parent().removeClass('has-error');
+
+                                                                                                                                                                                                                                $(element).find('input#teacher_assessment').removeAttr('data-toggle').removeAttr('title').tooltip('destroy');
+                                                                                                                                                                                                    }
+                                                                                                                                                                        }).catch(function (errors) {
+
+                                                                                                                                                                                                    var messages = errors.response.data;
+
+                                                                                                                                                                                                    $(pElt).empty().html('\n                                \n                                    <span class="pull-right glyphicon glyphicon-remove text-danger">\n                                    </span>\n                                \n                                ');
+
+                                                                                                                                                                                                    // Notify the error
+
+                                                                                                                                                                                                    if (messages.value !== undefined) {
+
+                                                                                                                                                                                                                                $(element).find('input#value').parent().parent().addClass('has-error');
+
+                                                                                                                                                                                                                                $(element).find('input#value').attr('data-toggle', 'tooltip').attr('title', messages.value).attr('data-placement', 'top').tooltip('trigger', 'hover');
+                                                                                                                                                                                                    } else {
+
+                                                                                                                                                                                                                                if ($(element).find('input#value').hasClass('has-error')) {
+
+                                                                                                                                                                                                                                                            $(element).find('input#value').parent().parent().removeClass('has-error');
+
+                                                                                                                                                                                                                                                            $(element).find('input#value').removeAttr('data-toggle').removeAttr('data-placement').removeAttr('title').tooltip('destroy');
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                    {
+
+                                                                                                                                                                                                                                if ($(element).find('input#value').hasClass('has-error')) {
+
+                                                                                                                                                                                                                                                            $(element).find('input#value').parent().parent().removeClass('has-error');
+
+                                                                                                                                                                                                                                                            $(element).find('input#value').removeAttr('data-toggle').removeAttr('title').tooltip('destroy');
+                                                                                                                                                                                                                                }
+                                                                                                                                                                                                    }
+                                                                                                                                                                        });
+                                                                                                                                            }
+                                                                                    });
+
+                                                                                    $(button).button('reset');
+                                                        },
+                                                        filterGradeBySubject: function filterGradeBySubject(event) {
+
+                                                                                    $(event.currentTarget).closest('form').submit();
+                                                        },
+                                                        submitMessageThreadForm: function submitMessageThreadForm() {
+
+                                                                                    $('#message-thread-form').submit();
+                                                        },
+                                                        showMessageThread: function showMessageThread(event) {
+
+                                                                                    var currentMessageThread = event.currentTarget;
+
+                                                                                    window.location = $(currentMessageThread).attr('data-href');
+                                                        },
+                                                        formatDate: function formatDate(date) {
+
+                                                                                    return date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear() + ' à ' + date.getHours() + ':' + date.getMinutes();
+                                                        },
+                                                        onMessageSubmit: function onMessageSubmit(event) {
+                                                                                    var _this2 = this;
+
+                                                                                    var button = $(event.currentTarget);
+
+                                                                                    $(button).button('loading');
+
+                                                                                    var form = $(button).closest('form')[0];
+
+                                                                                    var data = this.objectifyForm(form);
+
+                                                                                    axios.post('/message', data).then(function (response) {
+
+                                                                                                                var message = '\n                    \n                    <li class="message-item highlight">\n        \n                        \n                        \n        \n                        <div class="message-sender text-right">\n                            \n                            <div class="timestamp text-left col-md-4">\n                                            \n                                <em class="text-muted"> ' + _this2.formatDate(new Date()) + '</em>\n                                                \n                            </div>\n                            \n                            <div class="sender col-md-8 text-right"> Moi </div>\n            \n                        </div>\n            \n                        <hr>\n            \n                        <p class="message-text"> ' + response.data.body + '\n                                       \n            \n                        </p>\n    \n    \n                    </li>\n                    \n                    ';
+
+                                                                                                                // adding message in the thread
+
+                                                                                                                $('.message-thread').prepend(message).fadeIn('slow', 'swing');
+
+                                                                                                                // Clear textarea
+
+                                                                                                                $('textarea').val('');
+
+                                                                                                                $(button).button('reset');
+                                                                                    }).catch(function (error) {
+
+                                                                                                                $(button).button('reset');
+                                                                                    });
+                                                        },
+                                                        allowSendingMessage: function allowSendingMessage(event) {
+
+                                                                                    var val = $(event.currentTarget).val();
+
+                                                                                    if (val.length === 0) $('.send-button').attr('disabled', true);else $('.send-button').removeAttr('disabled');
+                                                        },
+
+
+                                                        /**
+                                                         * Turn a button to on processing state
+                                                         *
+                                                         * @param event
+                                                         */
+
+                                                        loadingState: function loadingState(event) {
+
+                                                                                    $(event.currentTarget).button('loading');
+                                                        },
+                                                        setActive: function setActive(event) {
+
+                                                                                    var link = event.currentTarget;
+
+                                                                                    if ($(link).find('.submenu').hasClass('in')) {
+
+                                                                                                                $(link).removeClass('active');
+                                                                                    } else {
+
+                                                                                                                $(link).addClass('active');
+                                                                                    }
+                                                        }
+                            },
+
+                            mounted: function mounted() {
+
+                                                        // Set opt-in component
+
+                                                        $('[data-toggle="tooltip"]').tooltip();
+
+                                                        $('[data-toggle="popover"]').popover();
+
+                                                        // Initialy hide evaluation form for
+
+                                                        // teacher admin evaluation index
+
+                                                        this.hideShowNew();
                             }
-                        }
-                    });
-                } else // Older one -> update
-                    {
-
-                        // Make ajax patch request
-
-                        // to update grades
-
-                        axios.patch('/admin_teacher/grade/' + data.id, data).then(function (response) {
-
-                            // Add ok glyph if success
-
-                            $(pElt).empty().html('\n                                \n                                    <span class="pull-right glyphicon glyphicon-ok text-primary">\n                                    </span>\n                                \n                                ');
-
-                            // Remove error class
-
-                            if ($(element).find('input#value').parent().parent().hasClass('has-error')) {
-
-                                $(element).find('input#value').parent().parent().removeClass('has-error');
-
-                                $(element).find('input#value').removeAttr('data-toggle').removeAttr('data-placement').removeAttr('title').tooltip('destroy');
-                            }
-
-                            if ($(element).find('input#teacher_assessment').hasClass('has-error')) {
-
-                                $(element).find('input#teacher_assessment').parent().parent().removeClass('has-error');
-
-                                $(element).find('input#teacher_assessment').removeAttr('data-toggle').removeAttr('title').tooltip('destroy');
-                            }
-                        }).catch(function (errors) {
-
-                            var messages = errors.response.data;
-
-                            $(pElt).empty().html('\n                                \n                                    <span class="pull-right glyphicon glyphicon-remove text-danger">\n                                    </span>\n                                \n                                ');
-
-                            // Notify the error
-
-                            if (messages.value !== undefined) {
-
-                                $(element).find('input#value').parent().parent().addClass('has-error');
-
-                                $(element).find('input#value').attr('data-toggle', 'tooltip').attr('title', messages.value).attr('data-placement', 'top').tooltip('trigger', 'hover');
-                            } else {
-
-                                if ($(element).find('input#value').hasClass('has-error')) {
-
-                                    $(element).find('input#value').parent().parent().removeClass('has-error');
-
-                                    $(element).find('input#value').removeAttr('data-toggle').removeAttr('data-placement').removeAttr('title').tooltip('destroy');
-                                }
-                            }
-                            {
-
-                                if ($(element).find('input#value').hasClass('has-error')) {
-
-                                    $(element).find('input#value').parent().parent().removeClass('has-error');
-
-                                    $(element).find('input#value').removeAttr('data-toggle').removeAttr('title').tooltip('destroy');
-                                }
-                            }
-                        });
-                    }
-            });
-
-            $(button).button('reset');
-        },
-        filterGradeBySubject: function filterGradeBySubject(event) {
-
-            $(event.currentTarget).closest('form').submit();
-        },
-        submitMessageThreadForm: function submitMessageThreadForm() {
-
-            $('#message-thread-form').submit();
-        },
-        showMessageThread: function showMessageThread(event) {
-
-            var currentMessageThread = event.currentTarget;
-
-            window.location = $(currentMessageThread).attr('data-href');
-        },
-        formatDate: function formatDate(date) {
-
-            return date.getDate() + '-' + (date.getMonth() + 1) + '-' + date.getFullYear() + ' à ' + date.getHours() + ':' + date.getMinutes();
-        },
-        onMessageSubmit: function onMessageSubmit(event) {
-            var _this2 = this;
-
-            var button = $(event.currentTarget);
-
-            $(button).button('loading');
-
-            var form = $(button).closest('form')[0];
-
-            var data = this.objectifyForm(form);
-
-            axios.post('/message', data).then(function (response) {
-
-                var message = '\n                    \n                    <li class="message-item highlight">\n        \n                        \n                        \n        \n                        <div class="message-sender text-right">\n                            \n                            <div class="timestamp text-left col-md-4">\n                                            \n                                <em class="text-muted"> ' + _this2.formatDate(new Date()) + '</em>\n                                                \n                            </div>\n                            \n                            <div class="sender col-md-8 text-right"> Moi </div>\n            \n                        </div>\n            \n                        <hr>\n            \n                        <p class="message-text"> ' + response.data.body + '\n                                       \n            \n                        </p>\n    \n    \n                    </li>\n                    \n                    ';
-
-                // adding message in the thread
-
-                $('.message-thread').prepend(message).fadeIn('slow', 'swing');
-
-                // Clear textarea
-
-                $('textarea').val('');
-
-                $(button).button('reset');
-            }).catch(function (error) {
-
-                $(button).button('reset');
-            });
-        },
-        allowSendingMessage: function allowSendingMessage(event) {
-
-            var val = $(event.currentTarget).val();
-
-            if (val.length === 0) $('.send-button').attr('disabled', true);else $('.send-button').removeAttr('disabled');
-        },
-
-
-        /**
-         * Turn a button to on processing state
-         *
-         * @param event
-         */
-
-        loadingState: function loadingState(event) {
-
-            $(event.currentTarget).button('loading');
-        },
-        setActive: function setActive(event) {
-
-            var link = event.currentTarget;
-
-            if ($(link).find('.submenu').hasClass('in')) {
-
-                $(link).removeClass('active');
-            } else {
-
-                $(link).addClass('active');
-            }
-        }
-    },
-
-    mounted: function mounted() {
-
-        // Set opt-in component
-
-        $('[data-toggle="tooltip"]').tooltip();
-
-        $('[data-toggle="popover"]').popover();
-
-        // Initialy hide evaluation form for
-
-        // teacher admin evaluation index
-
-        this.hideShowNew();
-    }
 });
 
 /***/ }),

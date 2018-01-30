@@ -35,7 +35,7 @@
         
            </li>
         
-           <li role="presentation">
+           <li role="presentation" class="disabled">
                
                
                <a href="#">
@@ -74,7 +74,7 @@
                
            </li>
         
-           <li role="presentation">
+           <li role="presentation" class="sr-only">
     
     
                <a href="#">

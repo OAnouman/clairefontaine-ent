@@ -96,7 +96,7 @@
     
     
                                    <span data-toggle="tooltip" data-placement="top"
-                                         title="Pire note"
+                                         title="Plus basse note"
                                          class="glyphicon blink glyphicon-warning-sign text-danger"></span>
 
 
@@ -177,7 +177,7 @@
             
         </ul>
     
-        <div class="col-md-12">
+        <div class="col-md-12 clear-padding">
         
         
             <div class="pull-left">

@@ -402,35 +402,6 @@ class Student extends Model
 
     }
 
-
-
-    /**
-     *
-     * Get all messages where student (parent)
-     *
-     * is involved in
-     *
-     * @param int $messageThreadId
-     *
-     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Support\Collection|static[]
-     *
-     */
-
-    public function messages (int $messageThreadId)
-    {
-
-
-        return Message::where('message_thread_id', $messageThreadId )
-
-                      ->latest()
-
-                      ->get();
-
-
-    }
-
-
-
     /**
      * Get unseen messages count
      *
