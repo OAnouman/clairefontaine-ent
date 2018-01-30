@@ -1,0 +1,623 @@
+.teacher {
+
+
+}
+
+.equal {
+
+
+  display:  flex;
+
+  flex-wrap: wrap;
+
+}
+
+/*
+  Left menu bar
+ */
+
+.sidebar-menu {
+
+
+  background-color: #14273d;
+
+  min-height : 100%;
+
+  border-radius: 0;
+
+  display: flex;
+
+  padding-left: 0;
+
+  padding-right: 0;
+
+}
+
+/*
+  Left menu bar header
+ */
+
+.side-navbar-header {
+
+
+  box-sizing: border-box;
+
+  margin-left : 30px;
+
+
+}
+
+
+/*
+  Left menu col title
+ */
+.navbar-title {
+
+
+  color: #FFFFFF;
+
+  font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
+
+  font-size: 1.1em;
+
+  line-height: 59px;
+
+  font-weight: 400;
+
+
+}
+
+
+.navbar-title:hover {
+
+
+  text-decoration: none;
+
+  color : #FFFFFF;
+
+}
+
+
+/*
+  Left col menu
+ */
+
+.menu {
+
+
+
+
+}
+
+
+.menu li a {
+
+
+  color: #FFFFFF;
+
+
+}
+
+
+.menu li a:hover {
+
+
+  background-color: #203f63;
+
+  border-radius: 0;
+
+
+}
+
+
+.work-section {
+
+
+  padding-right: 0;
+
+  padding-left: 0;
+
+  margin-left: 0;
+
+  margin-right: 0;
+
+
+}
+
+
+.navbar-right {
+
+  padding-right: 15px;
+
+
+}
+
+/*
+
+  Inbox bagde
+
+ */
+
+.inbox {
+
+  position: relative;
+
+  top : -10px;
+
+  left : -10px;
+
+  font-size: .7em;
+
+
+}
+
+
+/*
+
+  Navbar link
+
+ */
+
+ul.navbar-nav li:hover {
+
+
+  background-color: #eeeeee;
+
+}
+
+/*
+
+  Navbar active link
+
+ */
+
+.nav-pills > li.active > a {
+
+
+  border-radius: 0;
+
+  font-weight: bold;
+
+
+}
+
+
+/*
+
+  Work section
+
+ */
+
+
+
+/*
+  Navbar
+ */
+
+.navbar{
+
+
+  border-radius: 0;
+
+
+}
+
+/*
+Breadcrumb
+*/
+
+.breadcrumb{
+
+
+  margin-top: -15px;
+
+  margin-right: 15px;
+
+}
+
+
+.breadcrumb {
+
+
+  border-bottom: 1px solid #203f63;
+
+  border-radius : 0;
+
+
+}
+
+.work-section{
+
+
+  background-color: #f7f7f7;
+
+  min-height: 698px;
+
+}
+
+.work-section-content {
+
+  background-color: #f7f7f7;
+
+
+}
+
+.work-section-header {
+
+
+  padding : 0;
+
+}
+
+
+
+/*
+
+  Classroom header
+
+ */
+
+.classroom-header {
+
+  display: flex;
+
+  flex-direction: row;
+
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+
+}
+
+.classroom-header > div {
+
+
+  flex-grow: 1;
+
+  box-sizing: border-box;
+
+  width: 130px;
+
+  padding-left: 5px;
+
+  padding-right: 5px;
+
+  min-height: 100%;
+
+
+}
+
+
+.classroom-header div .panel{
+
+
+  min-height: 90%;
+
+}
+
+/*
+
+  Footer
+
+ */
+
+.footer {
+
+  position: fixed;
+
+  bottom: 0;
+
+  width: 100%;
+
+}
+
+
+/**
+  Center name in list-group
+ */
+
+.center-name
+{
+
+  margin-bottom: 0;
+
+  margin-top: 8px;
+
+
+}
+
+.item-form, .item-form .col-md-3
+{
+
+  padding-left: 0 ;
+
+  padding-right: 0;
+
+}
+
+
+.table > tbody > tr > td {
+
+
+  vertical-align: middle;
+
+
+}
+
+
+/*
+
+  Disable resize on textarea
+
+ */
+
+.message-form form textarea {
+
+  resize: none;
+
+}
+
+
+/*
+
+  Message thread
+
+ */
+
+
+
+/**
+ * Computes a top-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+
+@function top-shadow($depth) {
+
+  $primary-offset: nth(1.5 3 10 14 19, $depth) * 1px;
+  $blur: nth(1.5 3 10 14 19, $depth) * 4px;
+  $color: rgba(black, nth(.12 .16 .19 .25 .30, $depth));
+
+  @return 0 $primary-offset $blur $color;
+
+}
+
+/**
+ * Computes a bottom-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+
+@function bottom-shadow($depth) {
+
+  $primary-offset: nth(1.5 3 6 10 15, $depth) * 1px;
+  $blur: nth(1 3 3 5 6, $depth) * 4px;
+  $color: rgba(black, nth(.24 .23 .23 .22 .22, $depth));
+
+  @return 0 $primary-offset $blur $color;
+
+}
+
+/**
+ * Gives a card depth effect.
+ *
+ * @param {Number} $depth - depth level (between 1 and 5)
+ *
+ * @link https://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+ *
+ * @requires {function} top-shadow
+ * @requires {function} bottom-shadow
+ */
+
+@mixin card($depth) {
+
+  @if $depth < 1 {
+    box-shadow: none;
+  } @else if $depth > 5 {
+    @warn "Invalid $depth `#{$depth}` for mixin `card`.";
+  } @else {
+    box-shadow: bottom-shadow($depth), top-shadow($depth);
+  }
+
+}
+
+
+ul.message-thread {
+
+
+  margin-top: 15px;
+
+
+}
+
+ul.message-thread > li.message-item {
+
+
+  background-color: #fff;
+
+  padding: 5px 10px;
+
+  @include card(0);
+
+  transition: all 0.2s ease-in;
+
+  margin-bottom: 30px;
+
+}
+
+ul.message-thread > li.message-item.bg-muted {
+
+
+  background-color: #f7f7f7;
+
+
+}
+
+
+ul.message-thread > li.message-item:hover {
+
+
+  background-color: #fff;
+
+  padding: 5px 10px;
+
+  @include card(1);
+
+  overflow: hidden;
+
+  transition: all .2s ease-in;
+
+
+}
+
+
+
+
+ul.message-thread > li.message-item > div.message-sender  {
+
+
+  font-size : 0.9em;
+
+  font-weight: 600;
+
+  padding-left: 0;
+
+  padding-right: 0;
+
+
+}
+
+ul.message-thread > li.message-item > div.message-sender > div.sender {
+
+
+  text-transform: uppercase ;
+
+
+}
+
+
+ul.message-thread > li.message-item > div.message-sender > div {
+
+
+  padding-left: 0;
+
+  padding-right: 0;
+
+
+}
+
+ul.message-thread > li.message-item > div.message-sender > div.timestamp {
+
+
+  font-size : 0.9em;
+
+
+}
+
+ul.message-thread > li.message-item > hr {
+
+
+  margin-top : 30px;
+
+  margin-bottom: 15px;
+
+
+}
+
+
+@keyframes highlight {
+
+  from {background-color: #ffff99}
+
+  to  {background-color: #ffffff}
+
+}
+
+.highlight {
+
+  -webkit-animation-name: highlight;
+  -moz-animation-name: highlight;
+  -o-animation-name: highlight;
+  animation-name: highlight;
+
+  animation-duration: .8s;
+
+  animation-timing-function: linear;
+
+  animation-iteration-count: 1;
+
+}
+
+
+
+/*
+
+  Custom helper class
+
+ */
+
+.badge-alert
+{
+
+
+  //display: inline-block;
+  //
+  //min-width: 10px;
+  //
+  //padding: 3px 7px;
+  //
+  //font-size: 10px;
+  //
+  //font-weight: bold;
+
+  color: #fff;
+
+  //line-height: 1;
+  //
+  //vertical-align: middle;
+  //
+  //white-space: nowrap;
+  //
+  //text-align: center;
+
+  background-color: #a94442;
+
+  //border-radius: 10px;
+
+
+}
+
+.badge-info
+{
+
+
+  display: inline-block;
+
+  min-width: 10px;
+
+  padding: 3px 7px;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  color: #fff;
+
+  line-height: 1;
+
+  vertical-align: middle;
+
+  white-space: nowrap;
+
+  text-align: center;
+
+  background-color: #3097D1;
+
+  border-radius: 10px;
+
+
+}

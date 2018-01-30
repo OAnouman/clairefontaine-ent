@@ -1,0 +1,370 @@
+.equal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+/*
+  Left menu bar
+ */
+
+.sidebar-menu {
+  background-color: #14273d;
+  min-height: 100%;
+  border-radius: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*
+  Left menu bar header
+ */
+
+.side-navbar-header {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin-left: 30px;
+}
+
+/*
+  Left menu col title
+ */
+
+.navbar-title {
+  color: #FFFFFF;
+  font-family: "Helvetica Neue",Roboto,Arial,"Droid Sans",sans-serif;
+  font-size: 1.1em;
+  line-height: 59px;
+  font-weight: 400;
+}
+
+.navbar-title:hover {
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
+/*
+  Left col menu
+ */
+
+.menu li a {
+  color: #FFFFFF;
+}
+
+.menu li a:hover {
+  background-color: #203f63;
+  border-radius: 0;
+}
+
+.work-section {
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.navbar-right {
+  padding-right: 15px;
+}
+
+/*
+
+  Inbox bagde
+
+ */
+
+.inbox {
+  position: relative;
+  top: -10px;
+  left: -10px;
+  font-size: .7em;
+}
+
+/*
+
+  Navbar link
+
+ */
+
+ul.navbar-nav li:hover {
+  background-color: #eeeeee;
+}
+
+/*
+
+  Navbar active link
+
+ */
+
+.nav-pills > li.active > a {
+  border-radius: 0;
+  font-weight: bold;
+}
+
+/*
+
+  Work section
+
+ */
+
+/*
+  Navbar
+ */
+
+.navbar {
+  border-radius: 0;
+}
+
+/*
+Breadcrumb
+*/
+
+.breadcrumb {
+  margin-top: -15px;
+  margin-right: 15px;
+}
+
+.breadcrumb {
+  border-bottom: 1px solid #203f63;
+  border-radius: 0;
+}
+
+.work-section {
+  background-color: #f7f7f7;
+  min-height: 698px;
+}
+
+.work-section-content {
+  background-color: #f7f7f7;
+}
+
+.work-section-header {
+  padding: 0;
+}
+
+/*
+
+  Classroom header
+
+ */
+
+.classroom-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.classroom-header > div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 130px;
+  padding-left: 5px;
+  padding-right: 5px;
+  min-height: 100%;
+}
+
+.classroom-header div .panel {
+  min-height: 90%;
+}
+
+/*
+
+  Footer
+
+ */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/**
+  Center name in list-group
+ */
+
+.center-name {
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.item-form,
+.item-form .col-md-3 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+/*
+
+  Disable resize on textarea
+
+ */
+
+.message-form form textarea {
+  resize: none;
+}
+
+/*
+
+  Message thread
+
+ */
+
+/**
+ * Computes a top-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+
+/**
+ * Computes a bottom-shadow for a card effect.
+ *
+ * @param {Number} $depth - depth level
+ *
+ * @return {List}
+ */
+
+/**
+ * Gives a card depth effect.
+ *
+ * @param {Number} $depth - depth level (between 1 and 5)
+ *
+ * @link https://www.google.com/design/spec/layout/layout-principles.html#layout-principles-dimensionality Google Design
+ *
+ * @requires {function} top-shadow
+ * @requires {function} bottom-shadow
+ */
+
+ul.message-thread {
+  margin-top: 15px;
+}
+
+ul.message-thread > li.message-item {
+  background-color: #fff;
+  padding: 5px 10px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  margin-bottom: 30px;
+}
+
+ul.message-thread > li.message-item.bg-muted {
+  background-color: #f7f7f7;
+}
+
+ul.message-thread > li.message-item:hover {
+  background-color: #fff;
+  padding: 5px 10px;
+  -webkit-box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.24), 0 1.5px 6px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  -webkit-transition: all .2s ease-in;
+  transition: all .2s ease-in;
+}
+
+ul.message-thread > li.message-item > div.message-sender {
+  font-size: 0.9em;
+  font-weight: 600;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ul.message-thread > li.message-item > div.message-sender > div.sender {
+  text-transform: uppercase;
+}
+
+ul.message-thread > li.message-item > div.message-sender > div {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+ul.message-thread > li.message-item > div.message-sender > div.timestamp {
+  font-size: 0.9em;
+}
+
+ul.message-thread > li.message-item > hr {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+@-webkit-keyframes highlight {
+  from {
+    background-color: #ffff99;
+  }
+
+  to {
+    background-color: #ffffff;
+  }
+}
+
+@keyframes highlight {
+  from {
+    background-color: #ffff99;
+  }
+
+  to {
+    background-color: #ffffff;
+  }
+}
+
+.highlight {
+  -webkit-animation-name: highlight;
+  animation-name: highlight;
+  -webkit-animation-duration: .8s;
+          animation-duration: .8s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+/*
+
+  Custom helper class
+
+ */
+
+.badge-alert {
+  color: #fff;
+  background-color: #a94442;
+}
+
+.badge-info {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #3097D1;
+  border-radius: 10px;
+}
+

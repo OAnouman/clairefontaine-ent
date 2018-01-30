@@ -1,0 +1,43 @@
+
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+
+// Variables
+@import "variables";
+
+// Bootstrap
+
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+//Date Date Picker
+
+@import "bootstrap-datepicker3.min.css";
+
+//Tag input
+
+@import "bootstrap-tagsinput.css";
+
+// Bootstrap select
+
+@import "bootstrap-select.min.css";
+
+
+.navbar-brand img, .navbar-brand img  {
+
+
+  margin-top : -11px ;
+
+
+}
+
+.footer {
+
+  background-color: #fff;
+
+}
+
+.blink {
+
+  text-decoration: blink;
+
+}
