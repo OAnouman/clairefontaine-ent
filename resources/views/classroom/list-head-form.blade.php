@@ -1,3 +1,4 @@
+
 <div class="row">
     
     
@@ -18,13 +19,13 @@
         
         
         <form id="classroom-student-form" @submit.prevent ="onClassroomStudentFormSubmit($event)"
-              class="form-inline" style="display: none">
+              class="form-inline" style="display: none;">
             
             
             <fieldset>
                 
                 
-                <div id="classroom-select" class = "form-group col-md-3">
+                <div id="classroom-select" class = "form-group col-md-3" style="padding-left: 0;">
                     
                     <label for="classroom_id" class="sr-only" >Classe</label>
                     

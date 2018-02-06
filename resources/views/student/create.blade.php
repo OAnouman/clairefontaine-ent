@@ -50,7 +50,8 @@
         <div class="col-md-12">
             
             
-            <form method="POST" action="{{ route('student.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('student.store') }}" enctype="multipart/form-data"
+             data-toggle="validator">
                 
                 
                 {{ csrf_field() }}
@@ -162,7 +163,7 @@
                                         <label for="lastname" >Nom</label>
             
                                         <input required type="text" value="{{ old('lastname') }}" class="form-control"
-                                               name="lastname" id="lastname" placeholder="Nom">
+                                               name="lastname" id="lastname" placeholder="Nom" @keyup="upperCaseInput($event)" />
     
                                         <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
                                         
@@ -226,7 +227,7 @@
             
             
                                             <input required class="form-control" size="16" type="text" name="birth_date"
-                                                   value="{{ old('birth_date') }}" id="birth_date" />
+                                                   value="{{ old('birth_date') }}" id="birth_date" autocomplete="off"/>
     
                                             <div class="input-group-addon">
                                                 
@@ -719,7 +720,8 @@
         
         
                                             <input required class="form-control" size="16" type="text" name="subscription_date"
-                                                   value="{{ old('subscription_date') }}" id="subscription_date" readonly>
+                                                   value="{{ old('subscription_date') }}" id="subscription_date" readonly
+                                                    autocomplete="off">
         
                                             <div class="input-group-addon">
             
@@ -758,7 +760,8 @@
                                         <label for="origin_school" >Ecole d'origine</label>
             
                                         <input type="text" value="{{ old('origin_school') }}" class="form-control"
-                                               name="origin_school" id="origin_school" placeholder="Ecole d'origine">
+                                               name="origin_school" id="origin_school" placeholder="Ecole d'origine"
+                                               @keyup="upperCaseInput($event)">
             
             
                                         @if ($errors->has('origin_school'))

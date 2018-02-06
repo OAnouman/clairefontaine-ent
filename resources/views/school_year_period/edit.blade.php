@@ -57,7 +57,8 @@
         <div class="col-md-6">
 
 
-            <form class="" method="POST" action="{{ route('school_year_period.update', $schoolYearPeriod->id) }}">
+            <form class="" method="POST" action="{{ route('school_year_period.update', $schoolYearPeriod->id) }}"
+                  data-toggle="validator">
 
 
                 {{ csrf_field() }}

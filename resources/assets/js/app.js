@@ -492,9 +492,6 @@ const app = new Vue({
 
             // inputs values
 
-            console.log(data);
-
-
             axios.post('/ajax/add_emergency_contact',data)
 
             .then( response => {
@@ -589,31 +586,22 @@ const app = new Vue({
         hideShow (event)
         {
 
+            let button = $(event.currentTarget);
 
-            let button = event.currentTarget;
+            $('#classroom-student-form').toggle(300, () => {
 
-            let form  = $('#classroom-student-form');
+                // Update button label
 
-            if( $(form).css('display') === 'block')
-            {
+                if ($.trim( button.html() ) === 'Ajouter')
 
+                    button.html('Masquer');
 
-                $(form).fadeOut('fast', () => $(form).css('display', 'none') );
+                else
 
-                $(button).html('Ajouter');
+                    button.html('Ajouter');
 
+            });
 
-            }
-            else
-            {
-
-
-                $(form).fadeIn('fast', () => $(form).css('display', 'block') );
-
-                $(button).html('Masquer');
-
-
-            }
 
 
         },
@@ -1361,9 +1349,9 @@ const app = new Vue({
         {
 
 
-            let button = event.currentTarget;
+            let buttonSubmit = $(event.currentTarget);
 
-            $(button).button('loading');
+            $(buttonSubmit).button('loading');
 
             let forms = $('.list-group form');
 
@@ -1736,16 +1724,10 @@ const app = new Vue({
                 }
 
 
-
-
-
-
             });
 
 
-            $(button).button('reset');
-
-
+            $(buttonSubmit).button('reset');
 
 
         },
@@ -1929,6 +1911,86 @@ const app = new Vue({
 
             }
 
+
+        },
+
+        /**
+         * Uppercase text input content
+         * @param event
+         */
+
+        upperCaseInput(event)
+        {
+
+            // Retrieve input field
+
+            let inputField = $(event.currentTarget);
+
+            // Upper case its content
+
+            let upperCaseValue = $(inputField).val().toUpperCase();
+
+            $(inputField).val(upperCaseValue);
+
+
+
+        },
+
+        generatePassword()
+        {
+
+            let password = this.randomString(8);
+
+            $('#password').val(password);
+
+            if ( $('#password_confirmation').length )
+
+                $('#password_confirmation').val(password);
+
+            else
+
+                $('#password-confirm').val(password);
+        },
+
+        /**
+         * Generate a random string
+         * @param length : The length of the generated string
+         * @returns {string}
+         */
+
+        randomString(length)
+        {
+
+
+            let randomPassword = "";
+
+            let baseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            for (let i = 0; i < length; i++)
+
+                randomPassword += baseChars.charAt(Math.floor(Math.random() * baseChars.length));
+
+            return randomPassword;
+
+
+        },
+
+        /**
+         * Show / hide a password input type content
+         */
+
+        togglePassword()
+        {
+
+            let passwordInputField = $('#password');
+
+            if ( passwordInputField.attr('type') === 'password' )
+
+                passwordInputField.attr('type', 'text');
+
+            else
+
+                passwordInputField.attr('type', 'password');
 
         },
 

@@ -57,7 +57,7 @@
         <div class="col-md-6">
             
             
-            <form method="POST" action="{{ route('classroom_teacher.store') }}">
+            <form method="POST" action="{{ route('classroom_teacher.store') }}" data-toggle="validator">
                 
                 
                 {{ csrf_field() }}

@@ -50,7 +50,8 @@
         <div class="col-md-12">
             
             
-            <form method="POST" action="{{ route( 'student.update', $student->id ) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route( 'student.update', $student->id ) }}" enctype="multipart/form-data"
+                data-toggle="validator">
                 
                 
                 {{ csrf_field() }}
@@ -166,7 +167,7 @@
                                         <label for="lastname" >Nom</label>
                                         
                                         <input required type="text" value="{{ $student->lastname }}" class="form-control"
-                                               name="lastname" id="lastname" placeholder="Nom">
+                                               name="lastname" id="lastname" placeholder="Nom" @keyup="upperCaseInput($event)">
                                         
                                         <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
                                         
@@ -762,7 +763,8 @@
                                         <label for="origin_school" >Ecole d'origine</label>
                                         
                                         <input type="text" value="{{$student->origin_school }}" class="form-control"
-                                               name="origin_school" id="origin_school" placeholder="Ecole d'origine">
+                                               name="origin_school" id="origin_school" placeholder="Ecole d'origine"
+                                               @keyup="upperCaseInput($event)">
                                         
                                         
                                         @if ($errors->has('origin_school'))
@@ -1097,7 +1099,7 @@
                         {{--<div role="tabpanel" class="tab-pane fade" id="medical">--}}
                         {{----}}
                         {{----}}
-                        {{-- TODO: Medical Sheet Fields --}}
+                        {{-- COMPLETED: Medical Sheet Fields --}}
                         {{----}}
                         {{----}}
                         {{--</div> <!-- End Info Medical tab -->--}}

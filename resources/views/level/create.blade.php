@@ -57,7 +57,7 @@
         <div class="col-md-6">
             
             
-            <form method="POST" action="{{ route('level.store') }}">
+            <form method="POST" action="{{ route('level.store') }}" data-toggle="validator">
                 
                 
                 {{ csrf_field() }}
@@ -67,7 +67,8 @@
                     
                     <label for="name" >Libellé</label>
                     
-                    <input required type="text" value="{{ old('name') }}" class="form-control"  name="name" id="name" placeholder="Libéllé">
+                    <input required type="text" value="{{ old('name') }}" class="form-control"
+                           name="name" id="name" placeholder="Libéllé">
     
                     <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
     

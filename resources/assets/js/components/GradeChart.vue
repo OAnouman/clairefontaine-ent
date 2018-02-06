@@ -168,17 +168,20 @@
 
                 let today = new Date();
 
-                // Retrieve three months back date
+                // Retrieving and formatting dates used to make query.
+
+                // The interval is set to three months, so we display all grades
+
+                // of a given subject within this interval
 
                 let threeMonthsBackDate = new Date();
 
                 threeMonthsBackDate.setMonth(new Date().getMonth() - 2);
 
-                let beginDate = threeMonthsBackDate.getFullYear() + '-' + (threeMonthsBackDate.getMonth() + 1) + '-' + ( threeMonthsBackDate.getDate() + 1 ),
+                let beginDate =
+                    threeMonthsBackDate.getFullYear() + '-' + (threeMonthsBackDate.getMonth() + 1) + '-' + ( threeMonthsBackDate.getDate() ),
 
-                    endDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + ( today.getDate() + 1 );
-
-                console.log(beginDate, endDate);
+                    endDate = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + ( today.getDate()  );
 
                 axios.get('/student_grade/'+  subject.id  +'/' + beginDate + '/'
                     + endDate + '/' + this.classroom.id)

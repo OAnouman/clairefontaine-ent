@@ -59,7 +59,7 @@
         <div class="col-md-6">
             
             
-            <form method="POST" action="{{ route('classroom_teacher.update') }}">
+            <form method="POST" action="{{ route('classroom_teacher.update') }}" data-toggle="validator">
                 
                 
                 {{ csrf_field() }}

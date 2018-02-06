@@ -177,7 +177,7 @@ Route::resource('/admin_teacher/message_center', 'Teacher\MessageCenterControlle
 
 Route::get('/admin_parent', 'Parent\DashboardController@index')->name('parent.dashboard');
 
-Route::get('/admin_parent/evaluation/{school_year_id}/{classroom_id}', 'Parent\EvaluationController@show')
+Route::get('/admin_parent/evaluation/{school_year_period_id}/{classroom_id}', 'Parent\EvaluationController@show')
     ->name('parent.evaluation');
 
 Route::get('/admin_parent/profile/{student}', 'Parent\DashboardController@show')->name('parent.profile');

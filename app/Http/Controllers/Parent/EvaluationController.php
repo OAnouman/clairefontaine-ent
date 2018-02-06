@@ -29,20 +29,20 @@ class EvaluationController extends Controller
     /**
      * Show resource from storage
      *
-     * @param $school_year_id
+     * @param $school_year_period_id
      * @param $classroom_id
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
 
-    public function show ( int $school_year_id , int $classroom_id )
+    public function show (int $school_year_period_id , int $classroom_id )
     {
 
         $grades = null;
 
         $student = auth()->user()->userable ;
 
-        $schoolYearPeriod = SchoolYearPeriod::find($school_year_id);
+        $schoolYearPeriod = SchoolYearPeriod::find($school_year_period_id);
 
         $subjects = Classroom::find($classroom_id)->level->subjects ;
 

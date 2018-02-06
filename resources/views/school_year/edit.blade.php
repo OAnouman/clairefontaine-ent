@@ -53,7 +53,7 @@
         <!-- Panel content -->
         
         
-        <form method = "POST" action = "{{ route('school_year.update', $schoolYear->id) }}">
+        <form method = "POST" action = "{{ route('school_year.update', $schoolYear->id) }}" data-toggle="validator">
             
             
             {{ csrf_field() }}

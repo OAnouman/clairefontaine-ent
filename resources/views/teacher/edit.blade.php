@@ -54,7 +54,7 @@
         <!-- Panel content -->
         
         
-        <form class="" method="POST" action="{{ route('teacher.update', $teacher->id) }}">
+        <form class="" method="POST" action="{{ route('teacher.update', $teacher->id) }}" data-toggle="validator">
     
     
             <div class="col-md-6">
@@ -301,18 +301,39 @@
             
                     </div>
             
-                    <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
+                    <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
                 
                 
                         <label for="password" >Mot de passe</label>
                 
-                        <input type="password" class="form-control"
-                               name="password" id="password">
-    
-    
-                        <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
-    
-                        <span id="reg_number" class="sr-only">(required)</span>
+                        <div class="input-group">
+
+                            <input type="password" class="form-control"
+                                   name="password" id="password">
+
+                            <div class="input-group-btn">
+
+                                <button class="btn btn-default" type="button"
+                                        data-placement="top" data-toggle="tooltip" title="Afficher"
+                                        @mouseup="togglePassword" @mousedown="togglePassword">
+
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                </button>
+
+                                <button class="btn btn-default" type="button" @click="generatePassword"
+                                        data-placement="top" data-toggle="tooltip" title="Générer">
+
+                                    <i class="fa fa-random"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+
                         
                         @if ($errors->has('password'))
                     
@@ -320,10 +341,10 @@
                             <span class="help-block">
 
 
-                        <strong>{{ $errors->first('password') }}</strong>
+                                <strong>{{ $errors->first('password') }}</strong>
 
 
-                    </span>
+                            </span>
                 
                 
                         @endif
@@ -336,7 +357,7 @@
                 
                         <label for="password_confirmation" >Confirmer le mot de passe</label>
                 
-                        <input type="password" class="form-control"
+                        <input type="password" class="form-control" data-match="#password"
                                name="password_confirmation" id="password_confirmation">
     
     

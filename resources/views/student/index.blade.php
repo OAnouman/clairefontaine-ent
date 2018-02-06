@@ -185,7 +185,7 @@
     
                     </td>
     
-                    <td class="col-md-7">
+                    <td class="col-md-6">
         
         
                         <strong>

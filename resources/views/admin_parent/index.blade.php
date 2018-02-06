@@ -43,16 +43,16 @@
     
         
         <div class="row">
-    
-            
+
+
             <div class="col-md-6">
-        
-        
-                <grade-chart :classroom='{!!   $student->classrooms()->latest()->first()->toJson() !!}'></grade-chart>
-    
-    
+
+
+                <evaluations :student='{!! $student->toJson() !!}' limit="8"></evaluations>
+
+
             </div>
-    
+
             <div class="col-md-6">
         
                 <overview student="{{ $student->id }}"
@@ -65,16 +65,16 @@
         </div>
         
         <div class="row">
-    
-    
+
+
             <div class="col-md-6">
-        
-        
-                <evaluations :student='{!! $student->toJson() !!}' limit="8"></evaluations>
-    
-    
+
+
+                <grade-chart :classroom='{!!   $student->classrooms()->latest()->first()->toJson() !!}'></grade-chart>
+
+
             </div>
-    
+
             <div class="col-md-6">
         
         

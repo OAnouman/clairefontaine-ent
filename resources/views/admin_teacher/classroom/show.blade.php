@@ -66,7 +66,7 @@
             </panel-default>
     
         </div>
-    
+
         <div>
         
             <panel-default>
@@ -95,8 +95,7 @@
                     
                     
                         <li>
-                            
-                            
+
                             <a href="#" data-toggle="popover"
                                title="<strong>Evaluation du {{ $evaluation->evaluation_date }}</strong>"
                                data-content="
@@ -116,8 +115,18 @@
                     
                     
                     @endforeach
-                    
-                    <li> <a href="{{ route('evaluation.index') }}">Voir plus...</a> </li>
+
+                    <br/>
+
+                    <ul class="list-unstyled list-inline">
+
+                       <li> <a href="{{ route('evaluation.index') }}">Voir plus... </a> </li>
+
+                       <li> / </li>
+
+                       <li> <a href="{{ route('evaluation.index') }}">Nouvelle évaluation </a> </li>
+
+                    </ul>
                     
                     
                 </ul>
@@ -150,10 +159,14 @@
                         {
                         
                             $subject_id = Auth()->user()->userable->subjects($classroom->id)->first()->pivot->subject_id;
+
+                            $subject = App\Subject::find($subject_id);
             
-                            $bestStudent = App\Subject::find($subject_id)->bestStudent($classroom->id);
+                            $bestStudent = $subject->bestStudent($classroom->id);
                         
-                            $worstStudent = App\Subject::find($subject_id)->worstStudent($classroom->id);
+                            $worstStudent = $subject->worstStudent($classroom->id);
+
+                            $classAvg = $subject->classAverage($classroom->id);
                         
                         }
                        
@@ -167,7 +180,7 @@
                 
                             <span class="glyphicon glyphicon-thumbs-up text-success"></span>
                 
-                            {{ key($bestStudent) . ' - Note moy. : ' .$bestStudent[key($bestStudent)] }}
+                            {{ key($bestStudent) }}  - Note moy. : <strong> {{ $bestStudent[key($bestStudent)] }} </strong>
             
                         </p>
             
@@ -175,8 +188,16 @@
                 
                             <span class="glyphicon glyphicon-thumbs-down text-danger"></span>
                 
-                            {{ key($worstStudent) . ' - Note moy. : ' . $worstStudent[key($worstStudent)] }}
+                            {{ key($worstStudent) }} - Note moy. :  <strong> {{ $worstStudent[key($worstStudent)] }} </strong>
             
+                        </p>
+
+
+                        <p>
+
+                            <i class="fa fa-bullseye" aria-hidden="true"></i>
+                            Moy. de la classe : <strong> {{ $classAvg }} </strong>
+
                         </p>
                         
                     @else
@@ -352,8 +373,9 @@
                         </td>
                     
                         <td>
-                        
-                            <a href="{{ route('message_center.show', $student->id) }}" title="Envoyer un message à l'élève"
+
+
+                            <a href="{{ route('message_center.show', $student->user['id']) }}" title="Envoyer un message à l'élève"
                                data-toggle="tooltip"  data-placement="top"
                                @click.prevent="sendMessageToStudent($event)">
                             
@@ -365,7 +387,7 @@
         
                                     {{ csrf_field() }}
         
-                                    <input name="recipient_id" type="hidden" value="{{ $student->user->id }}">
+                                    <input name="recipient_id" type="hidden" value="{{ $student->user["id"] }}"/>
     
     
                                 </form>

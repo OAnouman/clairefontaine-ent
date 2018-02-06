@@ -56,7 +56,7 @@
         <div class = "col-md-6">
             
             
-            <form class = "" method = "POST" action = "{{ route('level.update', $level->id) }}">
+            <form class = "" method = "POST" action = "{{ route('level.update', $level->id) }}" data-toggle="validator">
     
                 <input name="_method" type="hidden" value="PATCH">
                 

@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route($action, $data) }}">
+<form method="POST" action="{{ route($action, $data) }}" data-toggle="validator">
     
     
     {{ csrf_field() }}
@@ -104,7 +104,30 @@
             <label for="password" class="control-label">Mot de passe</label>
             
             
-            <input id="password" type="password" class="form-control" name="password" {{ $user ? '' : 'required' }}>
+            <div class="input-group">
+
+                <input id="password" type="password" class="form-control" name="password" {{ $user ? '' : 'required' }}>
+
+                <div class="input-group-btn">
+
+                    <button class="btn btn-default" type="button"
+                            data-placement="top" data-toggle="tooltip" title="Afficher"
+                            @mousedown="togglePassword" @mouseup="togglePassword">
+
+                        <i class="fa fa-eye" aria-hidden="true"></i>
+
+                    </button>
+
+                    <button class="btn btn-default"  type="button" @click="generatePassword"
+                        data-placement="top" data-toggle="tooltip" title="Générer">
+
+                        <i class="fa fa-random" aria-hidden="true"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
             
             @if ($errors->has('password'))
                 
@@ -129,7 +152,8 @@
             <label for="password-confirm" class="control-label">Confirmer le mot de passe</label>
             
             
-            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" {{ $user ? '' : 'required' }}>
+            <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
+                    {{ $user ? '' : 'required' }} data-match="#password">
         
         
         </div>

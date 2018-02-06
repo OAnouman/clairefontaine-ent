@@ -12,7 +12,7 @@
                 
                 <li>
     
-                    © 2017 Clairefontaine ENT - Tous droits réservés.
+                    © {{ Carbon\Carbon::now()->year }} Clairefontaine ENT - Tous droits réservés.
                     
                 </li>
                 
@@ -33,18 +33,16 @@
     
     
     </div>
-    
-
-
-
 
 
     <script src="{{ asset('js/app.js') }}"></script>
     
     <script src="https://use.fontawesome.com/9736c7c481.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
 
-@if( request()->is('admin/student/*') || request()->is('admin/teacher/*') )
+
+@if( request()->is('admin/student/*') || request()->is('admin/settings/teacher/*') )
         
         {{-- Script for datetime picker --}}
         

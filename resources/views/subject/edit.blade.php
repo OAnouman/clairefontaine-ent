@@ -57,7 +57,7 @@
         <div class="col-md-6">
             
             
-            <form method="POST" action="{{ route('subject.update', $subject->id) }}">
+            <form method="POST" action="{{ route('subject.update', $subject->id) }}" data-toggle="validator">
                 
                 
                 {{ csrf_field() }}

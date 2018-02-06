@@ -56,7 +56,7 @@
         <div class = "col-md-6">
             
             
-            <form class = "" method = "POST" action = "{{ route('classroom.store') }}">
+            <form class = "" method = "POST" action = "{{ route('classroom.store') }}" data-toggle="validator">
                 
                 
                 {{ csrf_field() }}
@@ -180,7 +180,7 @@
         
                     <input required type = "text" value = "{{ old('name') }}"
                            class = "form-control" name = "name" id = "name"
-                           placeholder = "Libellé de la classe">
+                           placeholder = "Libellé de la classe" @keyup="upperCaseInput($event)" />
     
                     <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
     

@@ -49,22 +49,45 @@ class Subject extends Model
     }
 
 
-    public function topStudents ( $classroom_id)
+    /**
+     * Get all grade for a given class
+     *
+     * @param $classroom_id
+     * @return mixed
+     *
+     */
+
+    public function allGrades($classroom_id)
     {
 
-
         $evaluations = $this->evaluations()->where('classroom_id', $classroom_id)->get();
-
         $grades = collect();
-
-        foreach ($evaluations as $evaluation)
-        {
+        foreach ($evaluations as $evaluation) {
 
 
-            $grades = $grades->merge( $evaluation->grades );
+            $grades = $grades->merge($evaluation->grades);
 
 
         }
+
+        return $grades;
+
+    }
+
+
+    /**
+     * Get students rank sorted in increasing order for a given class
+     *
+     * If any student matches, return empty array
+     *
+     * @param $classroom_id
+     * @return array
+     */
+
+    public function topStudents ( $classroom_id)
+    {
+
+        $grades = $this->allGrades($classroom_id);
 
         $grades = $grades->groupBy('student_id');
 
@@ -83,6 +106,15 @@ class Subject extends Model
 
 
     }
+
+    /**
+     * Get the student with the highest average for a given class.
+     *
+     * If any student matches, return empty array
+     *
+     * @param $classroom_id
+     * @return array
+     */
 
     public function bestStudent ( $classroom_id )
     {
@@ -107,6 +139,13 @@ class Subject extends Model
 
     }
 
+    /**
+     * Get the student with the lowest average for a given class
+     *
+     * @param $classroom_id
+     * @return array
+     */
+
     public function worstStudent ( $classroom_id )
     {
 
@@ -127,6 +166,24 @@ class Subject extends Model
         }
 
         return [];
+
+    }
+
+    /**
+     * Get the average according to the given class id
+     *
+     * @param $classroom_id
+     * @return mixed
+     */
+
+    public function classAverage($classroom_id)
+    {
+
+
+        $grades = $this->allGrades($classroom_id);
+
+        return round( $grades->avg('value'), 2 );
+
 
     }
 

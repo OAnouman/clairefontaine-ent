@@ -54,7 +54,7 @@
         <!-- Panel content -->
 
 
-        <form class="" method="POST" action="{{ route('school_year.store') }}">
+        <form class="" method="POST" action="{{ route('school_year.store') }}" data-toggle="validator">
 
 
             {{ csrf_field() }}

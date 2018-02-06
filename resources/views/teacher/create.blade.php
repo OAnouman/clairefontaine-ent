@@ -54,7 +54,7 @@
         <!-- Panel content -->
         
         
-        <form class="" method="POST" action="{{ route('teacher.store') }}">
+        <form class="" method="POST" action="{{ route('teacher.store') }}" data-toggle="validator">
             
             
             <div class="col-md-6">
@@ -73,7 +73,8 @@
                         <label for="lastname" >Nom</label>
             
                         <input required type="text" class="form-control"  name="lastname"
-                               id="lastname" placeholder="Nom" value="{{ old('lastname') }}">
+                               id="lastname" placeholder="Nom" value="{{ old('lastname') }}"
+                               @keyup="upperCaseInput($event)">
     
     
                         <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
@@ -86,10 +87,10 @@
                             <span class="help-block">
     
     
-                            <strong>{{ $errors->first('lastname') }}</strong>
-    
-    
-                        </span>
+                                <strong class="">{{ $errors->first('lastname') }}</strong>
+
+
+                            </span>
             
             
                         @endif
@@ -116,10 +117,10 @@
                             <span class="help-block">
     
     
-                            <strong>{{ $errors->first('firstname') }}</strong>
-    
-    
-                        </span>
+                                <strong>{{ $errors->first('firstname') }}</strong>
+
+
+                            </span>
             
             
                         @endif
@@ -158,10 +159,10 @@
                             <span class="help-block">
 
 
-                        <strong>{{ $errors->first('birth_date') }}</strong>
+                                <strong>{{ $errors->first('birth_date') }}</strong>
 
 
-                    </span>
+                            </span>
         
         
                         @endif
@@ -191,10 +192,10 @@
                             <span class="help-block">
     
     
-                            <strong>{{ $errors->first('adress') }}</strong>
-    
-    
-                        </span>
+                                <strong>{{ $errors->first('adress') }}</strong>
+
+
+                            </span>
         
         
                         @endif
@@ -216,10 +217,10 @@
                             <span class="help-block">
     
     
-                            <strong>{{ $errors->first('mobile') }}</strong>
-    
-    
-                        </span>
+                                <strong>{{ $errors->first('mobile') }}</strong>
+
+
+                            </span>
         
         
                         @endif
@@ -242,10 +243,10 @@
                             <span class="help-block">
     
     
-                            <strong>{{ $errors->first('other_phoone') }}</strong>
-    
-    
-                        </span>
+                                <strong>{{ $errors->first('other_phoone') }}</strong>
+
+
+                            </span>
         
         
                         @endif
@@ -276,7 +277,7 @@
     
                         <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
     
-                        <span id="reg_number" class="sr-only">(required)</span>
+                        <span id="email" class="sr-only">(required)</span>
         
                         @if ($errors->has('email'))
             
@@ -284,10 +285,10 @@
                             <span class="help-block">
 
 
-                        <strong>{{ $errors->first('email') }}</strong>
+                                <strong>{{ $errors->first('email') }}</strong>
 
 
-                    </span>
+                            </span>
         
         
                         @endif
@@ -298,28 +299,47 @@
                     <div class="form-group has-feedback {{ $errors->has('password') ? 'has-error' : '' }}">
         
         
-                        <label for="password" >Mot de passe</label>
-        
-                        <input required type="password" class="form-control"
+                        <label for="password">Mot de passe</label>
+
+                        <div class="input-group">
+
+                            <input required type="password" class="form-control"
                                name="password" id="password">
-    
-    
-                        <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
-    
-                        <span id="reg_number" class="sr-only">(required)</span>
-        
+
+                            <div class="input-group-btn">
+
+                                <button class="btn btn-default" type="button"
+                                        data-placement="top" data-toggle="tooltip" title="Afficher"
+                                        @mouseup="togglePassword" @mousedown="togglePassword">
+
+                                    <i class="fa fa-eye" aria-hidden="true"></i>
+
+                                </button>
+
+                                <button class="btn btn-default" type="button" @click="generatePassword"
+                                    data-placement="top" data-toggle="tooltip" title="Générer">
+
+                                    <i class="fa fa-random"></i>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
                         @if ($errors->has('password'))
-            
-            
-                            <span class="help-block">
 
 
-                        <strong>{{ $errors->first('password') }}</strong>
+                                <span class="help-block">
 
 
-                    </span>
-        
-        
+                                    <strong>{{ $errors->first('password') }}</strong>
+
+
+                                </span>
+
+
                         @endif
     
     
@@ -331,7 +351,7 @@
                         <label for="password_confirmation" >Confirmer le mot de passe</label>
         
                         <input required type="password" class="form-control"
-                               name="password_confirmation" id="password_confirmation">
+                               name="password_confirmation" id="password_confirmation" data-match="#password">
     
     
                         <span class="glyphicon glyphicon-asterisk form-control-feedback" aria-hidden="true"></span>
@@ -344,10 +364,10 @@
                             <span class="help-block">
 
 
-                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                <strong>{{ $errors->first('password_confirmation') }}</strong>
 
 
-                    </span>
+                            </span>
         
         
                         @endif
@@ -373,7 +393,7 @@
             
             
                             <input class="form-control" size="16" type="text" name="hire_date"
-                                   value="{{ old('hire_date') }}" id="hire_date" readonly>
+                                   value="{{ old('hire_date') }}" id="hire_date" readonly autocomplete="off">
             
                             <div class="input-group-addon">
                 
@@ -415,7 +435,7 @@
             
             
                             <input class="form-control" size="16" type="text" name="leaving_date"
-                                   value="{{ old('leaving_date') }}" id="leaving_date" readonly>
+                                   value="{{ old('leaving_date') }}" id="leaving_date" readonly autocomplete="off">
             
                             <div class="input-group-addon">
                 

@@ -57,7 +57,7 @@
         <div class="col-md-6">
             
             
-            <form method="POST" action="{{ route('level_subject.update') }}">
+            <form method="POST" action="{{ route('level_subject.update') }}" data-toggle="validator">
                 
                 
                 {{ csrf_field() }}

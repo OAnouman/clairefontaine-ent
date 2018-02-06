@@ -11,6 +11,7 @@ namespace App\Observers;
 
 use App\Grade;
 use App\Notifications\GradeNotification;
+use Log;
 
 
 class GradeObserver
@@ -21,7 +22,18 @@ class GradeObserver
     {
 
 
-        $grade->notify( new GradeNotification( $grade, $grade->student ));
+        try
+        {
+
+            $grade->notify( new GradeNotification( $grade, $grade->student ) ) ;
+
+        }
+        catch (\Exception $e)
+        {
+
+            Log::info($e);
+
+        }
 
 
     }

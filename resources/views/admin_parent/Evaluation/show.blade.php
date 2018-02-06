@@ -260,7 +260,7 @@
     
             <h3 class="text-info placeholder text-center">
                 
-                <span class="fa fa-database"></span>
+                <i class="fa fa-ban" aria-hidden="true"></i>
                 
                 Vous n'avez aucune note pour cette période !
             

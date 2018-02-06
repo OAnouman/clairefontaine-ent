@@ -58,9 +58,16 @@
                     
                     <div class="col-md-12">
                         
-                        
-                        <img width="140" height="140" class="img-responsive img-circle center-block"
-                         src="{{ asset(config('image.uploads_path') . '/' . $student->picture) }}">
+                        @if( ! empty($student->picture) )
+
+                            <img width="140" height="140" class="img-responsive img-circle center-block"
+                             src="{{ asset(config('image.uploads_path') . '/' . $student->picture) }}">
+
+                        @else
+
+                            <i class="fa fa-user-circle fa-5x col-md-2 col-md-offset-5" aria-hidden="true"></i>
+
+                        @endif
                     
                     
                     </div>
@@ -793,7 +800,7 @@
                         <div class="modal-body">
                     
                     
-                            <form id="emergencyContactForm" action="" method="POST">
+                            <form id="emergencyContactForm" action="" method="POST" data-toggle="validator">
                         
                         
                                 <div id="name-div" class="form-group has-feedback

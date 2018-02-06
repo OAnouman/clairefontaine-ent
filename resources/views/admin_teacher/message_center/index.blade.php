@@ -64,7 +64,7 @@
                 
                 
                             <option data-tokens="{{ $student->lastname . ' ' . $student->firstname }}"
-                                    value = "{{ $student->user->id }}">{{ $student->lastname . ' ' . $student->firstname }}</option>
+                                    value = "{{ $student->user['id'] }}">{{ $student->lastname . ' ' . $student->firstname }}</option>
             
             
                         @endforeach

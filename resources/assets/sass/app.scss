@@ -59,3 +59,33 @@
   padding-right: 0;
 
 }
+
+//@function fa-size($sizeCoefficient)
+//{
+//
+//
+//  @if type-of($sizeCoefficient) == 'number'
+//  {
+//
+//    @return $sizeCoefficient;
+//
+//  }
+//  @else
+//  {
+//
+//    @warn "You must pass a number !";
+//
+//    @return 0;
+//
+//  }
+//
+//
+//}
+//
+//@function fa-s($size)
+//{
+//
+//  @return fa-size($size);
+//
+//}
+

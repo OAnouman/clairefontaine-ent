@@ -68,7 +68,7 @@
         <ul class="list-group">
     
     
-            @foreach($evaluation->classroom->students as $student)
+            @foreach($evaluation->classroom->students()->orderBy('lastname')->get() as $student)
     
     
                 <li href="#" class="list-group-item">
@@ -195,7 +195,8 @@
             <div class="pull-right">
             
             
-                <button @click="submitEvaluationGrade($event)" class="btn btn-primary" type="button" data-loading-text="Enregistrement...">
+                <button @click="submitEvaluationGrade($event)"
+                        class="btn btn-primary" type="button" data-loading-text="Enregistrement en cours...">
                 
                     Enregistrer
             
