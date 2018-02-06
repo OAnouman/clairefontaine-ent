@@ -104,6 +104,53 @@
                     <li class ="sr-only"><a href = "#">Notes</a></li>
                     
                     <li class="disabled"><a href = "#">Outils</a></li>
+
+                    <li role="presentation">
+
+                        <a data-toggle="collapse" data-target="#finance-submenu" aria-controls="finance-submenu"
+                           aria-expanded="false" href="#finance-submenu">
+
+                            Comptabilité et Divers
+
+                            <span class = "caret pull-right"></span>
+
+                        </a>
+
+                        <ul class="collapse list-unstyled submenu" id="finance-submenu">
+
+                            <li>
+
+                                <a href="#">
+
+                                    Scolarité
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a href="#">
+
+                                    Cantine et Transport
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a href="#">
+
+                                    Activités Extrascolaires
+
+                                </a>
+
+                            </li>
+
+                        </ul>
+
+                    </li> <!-- End comptabilite -->
                     
                     <li role="presentation"
                         class="{{ request()->is('admin/user') ||  request()->is('register') ||
@@ -161,8 +208,7 @@
                         
                         
                         <ul class = "collapse list-unstyled submenu {{ request()->is('admin/settings/*')
-                        ? 'in' : ''}}"
-                            id="settings-submenu">
+                            ? 'in' : ''}}" id="settings-submenu">
                             
                             
                             <li class="{{ request()->is('admin/settings/school_year')
@@ -229,7 +275,36 @@
                                 <a href = "{{ route('classroom_teacher.index') }}">Matières enseignants</a>
                             
                             </li>
-                        
+
+                            <li>
+
+                                <a href="#">
+
+                                    Scolarité
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a href="#">
+
+                                    Cantine et Transport
+
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a href="#">
+
+                                    Activités Extrascolaires
+
+                                </a>
+
+                            </li>
                         
                         </ul>
                     
