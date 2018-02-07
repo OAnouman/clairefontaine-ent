@@ -278,7 +278,7 @@
 
                             <li>
 
-                                <a href="#">
+                                <a href="{{ route('scholarship.index') }}">
 
                                     Scolarité
 

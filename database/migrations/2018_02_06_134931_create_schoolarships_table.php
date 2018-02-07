@@ -21,9 +21,9 @@ class CreateSchoolarshipsTable extends Migration
 
             $table->decimal('price')->default(0.0);
 
-            $table->integer('level_id');
+            $table->decimal('registration_fees')->default(0.0);
 
-            $table->integer('school_year_id');
+            $table->integer('level_id');
 
         });
     }

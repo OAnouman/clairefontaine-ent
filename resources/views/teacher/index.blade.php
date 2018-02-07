@@ -85,70 +85,70 @@
     
         </div>
         
-        
+
         <table class="table table-responsive table-hover table-condensed">
             
             
             <thead>
             
-            <td class="col-md-1">
-                
-                #
-            
-            </td>
-            
-            <td class="col-md-2">
-                
-                
-                <strong>
-                    
-                    Nom
-                
-                </strong>
-            
-            
-            </td>
-            
-            <td class="col-md-3">
-                
-                
-                <strong>
-                    
-                    Prénoms
-                
-                </strong>
-            
-            
-            </td>
+                <td class="col-md-1">
 
-            <td class="col-md-2">
-    
-    
-                <strong>
-        
-                    Mobile
-    
-                </strong>
+                    #
+
+                </td>
+
+                <td class="col-md-2">
 
 
-            </td>
-            
-            <td class="col-md-1">
-                
-                
-                <strong>
-                    
-                    Email
-                
-                </strong>
-            
-            
-            </td>
-            
-            
-            <td></td>
-            
-            <td></td>
+                    <strong>
+
+                        Nom
+
+                    </strong>
+
+
+                </td>
+
+                <td class="col-md-3">
+
+
+                    <strong>
+
+                        Prénoms
+
+                    </strong>
+
+
+                </td>
+
+                <td class="col-md-2">
+
+
+                    <strong>
+
+                        Mobile
+
+                    </strong>
+
+
+                </td>
+
+                <td class="col-md-1">
+
+
+                    <strong>
+
+                        Email
+
+                    </strong>
+
+
+                </td>
+
+
+                <td></td>
+
+                <td></td>
             
             </thead>
             
