@@ -120,7 +120,9 @@ Route::post('/admin/import_csv', 'Admin\StudentController@importCsv')->name('stu
 
 Route::get('/admin/student/{student}/print', 'Admin\StudentController@print')->name('student.print');
 
+// Scholarship settings route
 
+Route::resource('/admin/settings/scholarship', 'Admin\ScholarshipSettingsController');
 
 
 // Emergency contact route
@@ -133,9 +135,6 @@ Route::delete('/ajax/emergency_contact/{emergency_contact}', 'Admin\EmergencyPeo
 
 // Ajax route request
 
-// TODO : delete it
-
-Route::get('/ajax/get_classroom/{school_year}', 'Admin\ClassroomController@ajaxGetClassroom');
 
 
 

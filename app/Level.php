@@ -28,5 +28,11 @@ class Level extends Model
     }
 
 
+    public function schoolarship()
+    {
+
+        return $this->hasOne(Schoolarship::class);
+
+    }
 
 }
