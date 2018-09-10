@@ -1,5 +1,6 @@
 <form method="POST" action="{{ route($action, $data) }}" data-toggle="validator">
-    
+
+    {{-- TODO: Fix validator issue !--}}
     
     {{ csrf_field() }}
     
@@ -16,10 +17,10 @@
         
         
             <label for="lastname" class="control-label">Nom</label>
-        
-        
+
             <input id="lastname" type="text" class="form-control"
-                   name="lastname" value="{{ $user ? $user->lastname : old('lastname') }}" required autofocus>
+                   name="lastname" value="{{ $user ? $user->lastname : old('lastname') }}"
+                   required autofocus>
         
             @if ($errors->has('name'))
             
@@ -45,7 +46,7 @@
         
         
             <input id="firstname" type="text" class="form-control" name="firstname"
-                   value="{{ $user ? $user->firstname : old('firstname') }}" required autofocus>
+                   value="{{ $user ? $user->firstname : old('firstname') }}" required>
         
             @if ($errors->has('firstname'))
             
@@ -165,7 +166,7 @@
             
             
             <select id = "account_type" class="form-control selectpicker show-tick"
-                    name="account_type" title="Selectionner un profil">
+                    name="account_type" title="Selectionner un profil" required>
                 
                 <option {{ $user ? ($user->account_type === 'administrateur' ? 'selected ' : '') : ''  }}
                         value="administrateur">Administrateur</option>

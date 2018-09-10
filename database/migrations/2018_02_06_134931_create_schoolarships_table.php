@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessagesTable extends Migration
+class CreateSchoolarshipsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,25 +13,17 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-
-
-        Schema::create('messages', function (Blueprint $table) {
-
+        Schema::create('schoolarships', function (Blueprint $table) {
 
             $table->increments('id');
 
-            $table->integer('message_thread_id');
-
-            $table->integer('originator');
-
-            $table->integer('recipient');
-
-            $table->boolean('seen')->default(false);
-
-            $table->text('body');
-
             $table->timestamps();
 
+            $table->decimal('price')->default(0.0);
+
+            $table->decimal('registration_fees')->default(0.0);
+
+            $table->integer('level_id');
 
         });
     }
@@ -41,13 +33,10 @@ class CreateMessagesTable extends Migration
      *
      * @return void
      */
-
     public function down()
     {
 
-
-        Schema::dropIfExists('messages');
-
+        Schema::dropIfExists('schoolarships');
 
     }
 }

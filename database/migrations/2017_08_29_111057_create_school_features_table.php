@@ -14,6 +14,8 @@ class CreateSchoolFeaturesTable extends Migration
     public function up()
     {
 
+        // TODO : Implement this in student form
+
         Schema::create('school_features', function (Blueprint $table) {
 
             $table->increments('id');
