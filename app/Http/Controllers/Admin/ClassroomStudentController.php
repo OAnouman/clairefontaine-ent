@@ -43,10 +43,13 @@ class ClassroomStudentController extends Controller
 
 
         $students = null;
+        $classrooms = collect();
 
-        // only classrooms for the last year
+        // only classrooms for the current year
 
-        $classrooms = $this->classroomRepository->withSchoolYear(SchoolYear::latest()->first())->get();
+        if (SchoolYear::all()->count() > 0) {
+            $classrooms = $this->classroomRepository->getClassroomsOfYear(SchoolYear::latest()->first())->get();
+        }
 
         // TODO : Find a way to get only students with no classroom for latest school year
 

@@ -90,65 +90,65 @@
             
             
             <thead>
-            
-                <td class="col-md-1">
 
-                    #
+            <td class="col-md-1">
 
-                </td>
+                #
 
-                <td class="col-md-2">
+            </td>
 
-
-                    <strong>
-
-                        Nom
-
-                    </strong>
+            <td class="col-md-2">
 
 
-                </td>
+                <strong>
 
-                <td class="col-md-3">
+                    Nom
 
-
-                    <strong>
-
-                        Prénoms
-
-                    </strong>
+                </strong>
 
 
-                </td>
+            </td>
 
-                <td class="col-md-2">
-
-
-                    <strong>
-
-                        Mobile
-
-                    </strong>
+            <td class="col-md-3">
 
 
-                </td>
+                <strong>
 
-                <td class="col-md-1">
+                    Prénoms
 
-
-                    <strong>
-
-                        Email
-
-                    </strong>
+                </strong>
 
 
-                </td>
+            </td>
+
+            <td class="col-md-2">
 
 
-                <td></td>
+                <strong>
 
-                <td></td>
+                    Mobile
+
+                </strong>
+
+
+            </td>
+
+            <td class="col-md-1">
+
+
+                <strong>
+
+                    Email
+
+                </strong>
+
+
+            </td>
+
+
+            <td></td>
+
+            <td></td>
             
             </thead>
             

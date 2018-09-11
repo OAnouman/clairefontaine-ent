@@ -37,8 +37,9 @@
         </div>
         
         <div class="col-md-4 pull-right">
-            
-            <h3 class="text-right"> {{ $student->classrooms()->latest()->first()->name }} </h3>
+
+            <h3 class="text-right"> {{ $student->classrooms->count() ?
+             $student->classrooms()->latest()->first()->name : 'Pas de classe'}} </h3>
         
         </div>
     

@@ -34,13 +34,13 @@ class MtnSmsProApi
     const BASE_URL = "http://smspro.mtn.ci/smspro/soap/messenger.asmx/";
 
 
-
     /**
      * Check user credentials
      *
      * @param ApiCredential|null $credential
      *
      * @return bool
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
 
     public static function auth ( ApiCredential $credential = null)
@@ -78,7 +78,22 @@ class MtnSmsProApi
 
     }
 
+    static function buildAuthUrl(ApiCredential $credential = null)
+    {
 
+
+        if ($credential)
+
+            return self::BASE_URL . self::AUTHENTICATED_REQ . 'customerID=' . $credential->getCustomerId() .
+                '&username=' . $credential->getUsername() . '&userPassword=' . $credential->getPassword();
+
+        else
+
+            return self::BASE_URL . self::AUTHENTICATED_REQ . 'customerID=' . config('smspro.customer_id') .
+                '&username=' . config('smspro.username') . '&userPassword=' . config('smspro.password');
+
+
+    }
 
     /**
      * Send SMS to given $recipients.
@@ -97,11 +112,13 @@ class MtnSmsProApi
      *
      * @internal param string $smsText
      *
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
 
     public static function send( Sms $sms, ApiCredential $credential = null)
     {
 
+        if (!$sms) return false;
 
         $client = new Client([
 
@@ -137,7 +154,7 @@ class MtnSmsProApi
                     $response = $client->request( 'GET', self::buildSendUrl( $credential, $sms->getBody(),
                         $recipient, $sms->getOriginator() ) );
 
-                    $messageSuccessfullySent = self::isRequestSuccess($response);
+                    $messageSuccessfullySent = self::isRequestSuccessful($response);
 
 
                 }
@@ -153,13 +170,13 @@ class MtnSmsProApi
         {
 
 
-            dd($sms->getRecipients());
+            //dd($sms->getRecipients());
             // Single sending
 
             $response = $client->request('GET', self::buildSendUrl($credential, $sms->getBody(),
                 $sms->getRecipients(), $sms->getOriginator() ) );
 
-            return self::isRequestSuccess($response);
+            return self::isRequestSuccessful($response);
 
 
         }
@@ -168,26 +185,6 @@ class MtnSmsProApi
 
 
     }
-
-
-    static function buildAuthUrl( ApiCredential $credential = null)
-    {
-
-
-       if ($credential)
-
-           return self::BASE_URL . self::AUTHENTICATED_REQ . 'customerID=' . $credential->getCustomerId() .
-               '&username=' . $credential->getUsername() . '&userPassword=' . $credential->getPassword() ;
-
-       else
-
-           return self::BASE_URL . self::AUTHENTICATED_REQ . 'customerID=' . env('MTN_CUSTOMER_ID') .
-               '&username=' . env('MTN_USERNAME') . '&userPassword=' . env('MTN_PASSWORD') ;
-
-
-    }
-
-
 
     /**
      * @param $credentials
@@ -199,21 +196,21 @@ class MtnSmsProApi
      *
      */
 
-    static function buildSendUrl( $credentials, $smsText, $recipient, $originator )
+    static function buildSendUrl(ApiCredential $credentials, string $smsText, $recipient, $originator)
     {
 
 
-        if ( $credentials )
-
+        if ($credentials !== null)
             return self::BASE_URL . self::SEND_SMS_REQ . 'customerID=' . $credentials->getCustomerId() .
                 '&userName=' . $credentials->getUsername() . '&userPassword=' . $credentials->getPassword() . '&originator=' . $credentials->getOriginator() .
                 '&messageType=' . self::TYPE_L . '&defDate=' . '&blink=false' . '&flash=false' . '&private=true'
                 . '&smsText=' . $smsText . '&recipientPhone=' . $recipient ;
 
+
         else
 
             return self::BASE_URL . self::SEND_SMS_REQ . 'customerID=' . env('MTN_CUSTOMER_ID') .
-                '&userName=' . env('MTN_USERNAME') . '&userPassword=' . env('MTN_PASSWORD') . '&originator=' . $originator .
+                '&userName=' . config('smspro.username') . '&userPassword=' . config('smspro.password') . '&originator=' . $originator .
                 '&messageType=' . self::TYPE_L . '&defDate=' . '&blink=false' . '&flash=false' . '&private=true'
                 . '&smsText=' . $smsText . '&recipientPhone=' . $recipient ;
 
@@ -230,7 +227,7 @@ class MtnSmsProApi
      * Parse XML response and return true if message successfully sent
      */
 
-    private static function isRequestSuccess( $response)
+    private static function isRequestSuccessful($response)
     {
 
 

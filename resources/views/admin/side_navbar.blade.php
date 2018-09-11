@@ -112,7 +112,7 @@
 
                             Comptabilité et Divers
 
-                            <span class = "caret pull-right"></span>
+                            <span class="caret pull-right"></span>
 
                         </a>
 

@@ -97,132 +97,6 @@ class StudentRepository extends Repository
     /**
      * @inheritdoc
      *
-     * @param array $data
-     *
-     * @return $this|\Illuminate\Database\Eloquent\Model
-     */
-
-    public function create( array $data )
-    {
-
-
-        if( isset( $data[ 'picture' ] ) )
-        {
-
-
-           if($filename = $this->validateImage($data['picture']) )
-           {
-
-
-               $data['picture'] = $filename;
-
-
-           }
-           else
-           {
-
-
-               return null;
-
-
-           }
-
-
-
-
-        }
-
-        // Generating password
-
-        $data['username'] = TextUtils::strToNoAccent( str_replace(' ','.', strtolower( $data['firstname'] )) ) . '@clfe-ent.ci';
-
-
-        // We need to properly format date fields
-
-        $data[ 'birth_date' ] = Carbon::createFromFormat( 'd-m-Y', $data[ 'birth_date' ] );
-
-        $data[ 'subscription_date' ] = Carbon::createFromFormat( 'd-m-Y', $data[ 'subscription_date' ] );
-
-        try
-        {
-
-
-            return Student::create( $data );
-
-
-        }
-        catch ( QueryException $e )
-        {
-
-
-            return null;
-
-
-        }
-
-
-    }
-
-
-
-    /**
-     * Validate student image
-     *
-     * @param array $data
-     *
-     * @return array|bool|null
-     */
-
-    public function validateImage($image) : string
-    {
-
-
-        // Image validation if present
-
-        if($image->isValid())
-        {
-
-
-            $basePath = config('image.uploads_path');
-
-            $extension = $image->getClientOriginalExtension();
-
-            // Generating random filename
-
-            do
-            {
-
-
-                $filename = str_random(20) . '.' . $extension;
-
-
-            }
-            while(file_exists($basePath . '/' . $filename) );
-
-            $image->move($basePath, $filename);
-
-            return $filename;
-
-
-        }
-
-        else
-        {
-
-
-            return null;
-
-
-        }
-
-
-    }
-
-
-
-    /**
-     * @inheritdoc
-     *
      * @param int $id
      *
      * @return bool|mixed
@@ -261,8 +135,6 @@ class StudentRepository extends Repository
 
     }
 
-
-
     /**
      * @inheritdoc
      *
@@ -279,8 +151,6 @@ class StudentRepository extends Repository
 
 
     }
-
-
 
     /**
      * @inheritdoc
@@ -351,7 +221,52 @@ class StudentRepository extends Repository
 
     }
 
+    /**
+     * Validate student image
+     *
+     * @param array $data
+     *
+     * @return array|bool|null
+     */
 
+    public function validateImage($image): string
+    {
+
+
+        // Image validation if present
+
+        if ($image->isValid()) {
+
+
+            $basePath = config('image.uploads_path');
+
+            $extension = $image->getClientOriginalExtension();
+
+            // Generating random filename
+
+            do {
+
+
+                $filename = str_random(20) . '.' . $extension;
+
+
+            } while (file_exists($basePath . '/' . $filename));
+
+            $image->move($basePath, $filename);
+
+            return $filename;
+
+
+        } else {
+
+
+            return null;
+
+
+        }
+
+
+    }
 
     /**
      * Parse CSV file from MS SQL DB containing students
@@ -464,6 +379,22 @@ class StudentRepository extends Repository
 
     }
 
+    public function validateMail($email)
+    {
+
+
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+
+            return $email;
+
+
+        }
+
+        return '';
+
+
+    }
 
     public function getLivingLanguageName ($index)
     {
@@ -497,21 +428,74 @@ class StudentRepository extends Repository
 
     }
 
+    /**
+     * @inheritdoc
+     *
+     * @param array $data
+     *
+     * @return $this|\Illuminate\Database\Eloquent\Model
+     */
 
-    public function validateMail ($email)
+    public function create(array $data)
     {
 
 
-        if (filter_var($email, FILTER_VALIDATE_EMAIL))
-        {
+        if (isset($data['picture'])) {
 
 
-            return $email;
+            if ($filename = $this->validateImage($data['picture'])) {
+
+                $data['picture'] = $filename;
+
+            } else {
+
+
+                return null;
+
+
+            }
 
 
         }
 
-        return '';
+        // Generating username
+
+        /*
+         * Turn firstname to array
+         */
+        $firstnames = explode(' ', $data['firstname']);
+        $formattedFirstname = '';
+        foreach ($firstnames as $f) {
+            $formattedFirstname .= $formattedFirstname ? '-' . $f : $f;
+        }
+
+        $data['username'] = TextUtils::strToNoAccent(strtolower($data['firstname']))
+            . '.' .
+            TextUtils::strToNoAccent(
+                str_replace(' ', '.', strtolower($data['lastname']))
+            )
+            . '@clfe-ent.ci';
+
+
+        // We need to properly format date fields
+
+        $data['birth_date'] = Carbon::createFromFormat('d-m-Y', $data['birth_date']);
+
+        $data['subscription_date'] = Carbon::createFromFormat('d-m-Y', $data['subscription_date']);
+
+        try {
+
+
+            return Student::create($data);
+
+
+        } catch (QueryException $e) {
+
+            dd($e);
+//            return null;
+
+
+        }
 
 
     }

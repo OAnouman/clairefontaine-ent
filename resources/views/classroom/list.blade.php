@@ -82,7 +82,11 @@
                 
                 
                         <option data-tokens="{{ $classroom->name }}"
-                                data-subtext="{{ $classroom->teacher->firstname . ' ' . $classroom->teacher->lastname }}"
+                                data-subtext="{{
+                                        $classroom->teacher_id ?
+                                            $classroom->teacher->firstname . ' ' . $classroom->teacher->lastname
+                                            : 'Non attribué'
+                                }}"
                                 value = "{{ $classroom->id }}">{{ $classroom->name }}</option>
             
             

@@ -84,81 +84,80 @@
 
             <thead>
 
-                <td class="col-md-1">
+            <td class="col-md-1">
 
-                    <strong>
-                        #
-                    </strong>
+                <strong>
+                    #
+                </strong>
 
-                </td>
+            </td>
 
-                <td class="col-md-3">
+            <td class="col-md-3">
 
-                    <strong>
+                <strong>
 
-                        Niveau
+                    Niveau
 
-                    </strong>
+                </strong>
 
-                </td>
+            </td>
 
-                <td class="col-md-3">
+            <td class="col-md-3">
 
-                    <strong>
+                <strong>
 
-                        Droit Inscrip.
+                    Droit Inscrip.
 
-                    </strong>
+                </strong>
 
-                </td>
+            </td>
 
-                <td class="col-md-5">
+            <td class="col-md-5">
 
-                    <strong>
+                <strong>
 
-                        Scolarité
+                    Scolarité
 
-                    </strong>
+                </strong>
 
-                </td>
-
+            </td>
 
 
             </thead>
 
             <tbody>
 
-                @foreach($scholarships as $scholarship)
+            @foreach($scholarships as $scholarship)
 
-                    <tr>
+                <tr>
 
-                        <td>
+                    <td>
 
-                            {{ $loop->iteration }}
+                        {{ $loop->iteration }}
 
-                        </td>
+                    </td>
 
-                        <td>
+                    <td>
 
-                            {{ $scholarship->level->name }}
+                        {{ $scholarship->level->name }}
 
-                        </td>
+                    </td>
 
-                        <td>
+                    <td>
 
-                            {{ $scholarship->registration_fees . 'F CFA' }}
+                        {{ $scholarship->registration_fees . 'F CFA' }}
 
-                        </td>
+                    </td>
 
-                        <td>
+                    <td>
 
-                            {{ $scholarship->price . 'F CFA' }}
+                        {{ $scholarship->price . 'F CFA' }}
 
-                        </td>
+                    </td>
 
-                    </tr>
+                </tr>
 
-                @endforeach
+            @endforeach
 
             </tbody>
 

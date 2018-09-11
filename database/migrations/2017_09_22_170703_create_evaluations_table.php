@@ -16,7 +16,7 @@ class CreateEvaluationsTable extends Migration
     {
 
 
-        Schema::create('evalutaions', function (Blueprint $table) {
+        Schema::create('evaluations', function (Blueprint $table) {
 
             $table->increments('id');
 

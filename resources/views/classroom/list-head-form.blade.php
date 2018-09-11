@@ -38,7 +38,11 @@
                             
                             
                             <option data-tokens="{{ $classroom->name }}"
-                                    data-subtext="{{ $classroom->teacher->firstname . ' ' . $classroom->teacher->lastname }}"
+                                    data-subtext="{{
+                                        $classroom->teacher_id ?
+                                            $classroom->teacher->firstname . ' ' . $classroom->teacher->lastname
+                                            : 'Non attribué'
+                                    }}"
                                     value = "{{ $classroom->id }}">{{ $classroom->name }}</option>
                         
                         
@@ -58,15 +62,15 @@
                     <select required id = "student_id" data-header="Sélectionner un élève"
                             class = "form-control selectpicker show-tick" name = "student_id"
                             data-live-search="true" title="Elève" data-size="10">
-                        
-                        
-                        @foreach($allStudents as $allStudent)
-                            
-                            
-                            <option data-tokens="{{ $allStudent->lastname . ' ' . $allStudent->firstname }}"
-                                    value = "{{ $allStudent->id }}">
-                                
-                                {{ $allStudent->lastname . ' ' . $allStudent->firstname }}
+
+
+                        @foreach($allStudents as $student)
+
+
+                            <option data-tokens="{{ $student->lastname . ' ' . $student->firstname }}"
+                                    value="{{ $student->id }}">
+
+                                {{ $student->lastname . ' ' . $student->firstname }}
                             
                             </option>
                         

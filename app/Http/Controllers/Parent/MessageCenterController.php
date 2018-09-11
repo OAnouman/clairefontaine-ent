@@ -47,7 +47,8 @@ class MessageCenterController extends Controller
 
         $messageThreads = auth()->user()->userable->messageThreads();
 
-        $teachers = $student->currentClassroom()->teachers ;
+        $teachers = $student->classrooms->count() ?
+            $student->currentClassroom()->teachers : collect();
 
         return view('admin_parent.message_center.index',
             compact('messageThreads', 'teachers', 'student'));

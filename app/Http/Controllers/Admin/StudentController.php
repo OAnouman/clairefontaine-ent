@@ -21,18 +21,16 @@ class StudentController extends Controller
     protected $studentRepository;
 
 
-
     public function __construct(StudentRepository $studentRepository)
     {
 
 
-        $this->middleware( ['auth', 'admin'] );
+        $this->middleware(['auth', 'admin']);
 
         $this->studentRepository = $studentRepository;
 
 
     }
-
 
 
     /**
@@ -55,17 +53,13 @@ class StudentController extends Controller
             $removedOnly = true;
 
 
-
-        if($search = \request()->input('search'))
-        {
+        if ($search = \request()->input('search')) {
 
 
-            $students = $this->studentRepository->match($search, $removedOnly )->paginate();
+            $students = $this->studentRepository->match($search, $removedOnly)->paginate();
 
 
-        }
-        else
-        {
+        } else {
 
 
             $students = $this->studentRepository->allPaginate($removedOnly);
@@ -74,12 +68,10 @@ class StudentController extends Controller
         }
 
 
-
         return view('student.index', compact('students'));
 
 
     }
-
 
 
     /**
@@ -91,9 +83,12 @@ class StudentController extends Controller
 
     public function create()
     {
-
-
-        $classrooms = Classroom::where('school_year_id', SchoolYear::latest()->first()->id);
+        $classrooms = null;
+        if (SchoolYear::all()->count() > 0) {
+            $classrooms = Classroom::where('school_year_id', SchoolYear::latest()->first()->id);
+        } else {
+            $classrooms = collect();
+        }
 
         return view('student.create', compact('classrooms'));
 
@@ -101,11 +96,10 @@ class StudentController extends Controller
     }
 
 
-
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
 
@@ -117,34 +111,31 @@ class StudentController extends Controller
        * Save and flash message to session
        */
 
-        if ( $this->studentRepository->create( $request->all() ) ) {
+        if ($this->studentRepository->create($request->all())) {
 
 
-            session()->flash( 'success', 'L\' élève à été crée avec succès !' );
+            session()->flash('success', 'L\' élève à été crée avec succès !');
+
+
+        } else {
+
+
+            session()->flash('failed', 'une erreur est survenue lors de l\'enregistrement.');
 
 
         }
 
-        else {
 
-
-            session()->flash( 'failed', 'une erreur est survenue lors de l\'enregistrement.' );
-
-
-        }
-
-
-        return redirect(  )->route($this->redirectTo);
+        return redirect()->route($this->redirectTo);
 
 
     }
 
 
-
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
 
@@ -152,29 +143,28 @@ class StudentController extends Controller
     {
 
 
-        $student = $this->studentRepository->get( $id );
+        $student = $this->studentRepository->get($id);
 
 
-        if(\request()->ajax())
+        if (\request()->ajax())
 
 
-           return view( 'student.show', compact( 'student' ) ) ->renderSections()['emergency-contact'];
+            return view('student.show', compact('student'))->renderSections()['emergency-contact'];
 
 
         else
 
 
-            return view( 'student.show', compact( 'student' ) );
+            return view('student.show', compact('student'));
 
 
     }
 
 
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
 
@@ -182,20 +172,19 @@ class StudentController extends Controller
     {
 
 
-        $student = $this->studentRepository->get( $id );
+        $student = $this->studentRepository->get($id);
 
-        return view( 'student.edit', compact( 'student' ) );
+        return view('student.edit', compact('student'));
 
 
     }
 
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
 
@@ -203,36 +192,32 @@ class StudentController extends Controller
     {
 
 
-        if ( $this->studentRepository->update(
+        if ($this->studentRepository->update(
             $id,
-            $request->all() ) ) {
+            $request->all())) {
 
 
-            session()->flash( 'success', 'L\' élève à été modifié avec succès !' );
+            session()->flash('success', 'L\' élève à été modifié avec succès !');
+
+
+        } else {
+
+
+            session()->flash('failed', 'Une erreur est survenue lors de la modification.');
 
 
         }
 
-        else {
-
-
-            session()->flash( 'failed', 'Une erreur est survenue lors de la modification.' );
-
-
-        }
-
-        return redirect(  )->route($this->redirectTo);
+        return redirect()->route($this->redirectTo);
 
 
     }
 
 
-
-
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
 
@@ -240,44 +225,41 @@ class StudentController extends Controller
     {
 
 
-        if ( $this->studentRepository->destroy( $id ) ) {
+        if ($this->studentRepository->destroy($id)) {
 
 
-            session()->flash( 'success', 'L\' élève à été supprimé avec succès !' );
+            session()->flash('success', 'L\' élève à été supprimé avec succès !');
+
+
+        } else {
+
+
+            session()->flash('failed', 'Une erreur est survenue lors de la suppression.');
 
 
         }
 
-        else {
 
-
-            session()->flash( 'failed', 'Une erreur est survenue lors de la suppression.' );
-
-
-        }
-
-
-        return redirect(  )->route($this->redirectTo);
+        return redirect()->route($this->redirectTo);
 
 
     }
 
-    public function print( $id )
+    public function print($id)
     {
 
 
-        $student = $this->studentRepository->get( $id );
+        $student = $this->studentRepository->get($id);
 
-        $pdf = PDF::loadView('student.print', compact('student') );
+        $pdf = PDF::loadView('student.print', compact('student'));
 
         return $pdf->download('Profil de ' . $student->firstname . ' ' . $student->lastname);
 
 
-
     }
 
 
-    public function import ()
+    public function import()
     {
 
 
@@ -287,7 +269,7 @@ class StudentController extends Controller
     }
 
 
-    public function importCsv (Request $request)
+    public function importCsv(Request $request)
     {
 
 
@@ -298,11 +280,10 @@ class StudentController extends Controller
         ]);
 
 
-        if ($this->studentRepository->importCsv($request->all()) )
+        if ($this->studentRepository->importCsv($request->all()))
 
 
             session()->flash('success', 'Importation effectuée avec succès !');
-
 
 
         else

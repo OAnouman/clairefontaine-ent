@@ -1,15 +1,15 @@
 @component('mail::message')
 
 
-# Bienvenue sur la plateforme Clairefontaine ENT
+    # Bienvenue à l'Ecole Internationale Clairefontaine
 
-Nous sommes heureux de vous informer que l'inscription de
+    Nous avons le plaisir de vous informer que l'inscription de
 *{{ $student->firstname . ' ' . $student->lastname }}* à bien été effectuée.
 Cette inscription vous donne droit à un compte sur la plateforme
 Clairefontaine ENT pour toute la durée de sa scolarité à l'*Ecole Internationale
 Clairefontaine*.
 
-Vous trouverez ci-dessous vos identifiants de connexion :
+    Vous trouverez ci-dessous ses identifiants de connexion :
 
 - Login : {{ $student->username }}
 
@@ -25,7 +25,7 @@ Aller sur Clairefontaine ENT
 
 @endcomponent
 
-Merci ,<br>
+    A bientôt.<br>
 
 L'équipe {{ config('app.name') }}
 

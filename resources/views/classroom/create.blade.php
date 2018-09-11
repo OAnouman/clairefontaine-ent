@@ -207,8 +207,8 @@
         
         
                     <label for = "teacher_id">Enseignant en charge</label>
-        
-                    <select required id = "teacher_id" class = "form-control selectpicker show-tick"
+
+                    <select id="teacher_id" class="form-control selectpicker show-tick"
                             name = "teacher_id" data-header="Sélectionner un professeur" data-live-search="true">
             
                        @foreach($teachers as $teacher)

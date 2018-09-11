@@ -31,8 +31,9 @@
         </div>
         
         <div class="col-md-4 pull-right">
-    
-            <h3 class="text-right"> {{ $student->classrooms()->latest()->first()->name }} </h3>
+
+            <h3 class="text-right"> {{ $student->classrooms()->count() ?
+            $student->classrooms()->latest()->first()->name : 'Pas de classe'}} </h3>
             
         </div>
         
@@ -47,16 +48,24 @@
 
             <div class="col-md-6">
 
-
-                <evaluations :student='{!! $student->toJson() !!}' limit="8"></evaluations>
+                @if($student->classrooms()->count())
+                    <evaluations :student='{!! $student->toJson() !!}' limit="8"></evaluations>
+                @else
+                    <p>Aucune donnée disponible</p>
+                @endif
 
 
             </div>
 
             <div class="col-md-6">
-        
-                <overview student="{{ $student->id }}"
-                          classroom="{{ $student->classrooms()->latest()->first()->id }}"></overview>
+
+                @if($student->classrooms()->count())
+                    <overview student="{{ $student->id }}"
+                              classroom="{{ $student->classrooms()->latest()->first()->id }}">
+                    </overview>
+                @else
+                    <p>Aucune donnée disponible</p>
+                @endif
     
     
             </div>
@@ -69,19 +78,27 @@
 
             <div class="col-md-6">
 
-
-                <grade-chart :classroom='{!!   $student->classrooms()->latest()->first()->toJson() !!}'></grade-chart>
+                @if($student->classrooms()->count())
+                    <grade-chart :classroom='{!!
+                 $student->classrooms()->latest()->first()->toJson()  !!}'>
+                    </grade-chart>
+                @else
+                    <p>Aucune donnée disponible</p>
+                @endif
 
 
             </div>
 
             <div class="col-md-6">
-        
-        
-                <profile-overview :student='{!! $student->toJson() !!}'
-                    :classroom='{!!  $student->classrooms()->latest()->first()->toJson() !!}'></profile-overview>
-    
-    
+
+                @if($student->classrooms()->count())
+                    <profile-overview :student='{!! $student->toJson() !!}'
+                                      :classroom='{!! $student->classrooms()->latest()->first()->toJson()  !!}'
+                    ></profile-overview>
+                @else
+                    <p>Aucune donnée disponible</p>
+                @endif
+
             </div>
             
             

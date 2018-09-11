@@ -19,7 +19,7 @@
 
         </label>
 
-        <select id = "level_id" class="form-control selectpicker show-tick"
+        <select id="level_id" class="form-control selectpicker show-tick"
                 name="level_id" title="Selectionner un niveau">
 
             @foreach($levels as $level)
@@ -33,8 +33,6 @@
         </select>
 
     </div>
-
-
 
 
 </form>

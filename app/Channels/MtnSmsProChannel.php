@@ -10,6 +10,7 @@
 namespace App\Channels;
 
 
+use App\Api\ApiCredential;
 use Carbon\Carbon;
 use Illuminate\Notifications\Notification;
 use SmsPro;
@@ -28,20 +29,21 @@ class MtnSmsProChannel
      * @return void
      */
 
-    public function send( $notifiable, Notification $notification)
+    public function send($notifiable, Notification $notification)
     {
 
 
         $sms = $notification->toSmsPro($notifiable);
 
-
-        SmsPro::send($sms, null);
+        SmsPro::send($sms, new ApiCredential([
+            'customer_id' => config('smspro.customer_id'),
+            'username' => config('smspro.username'),
+            'password' => config('smspro.password'),
+            'originator' => config('smspro.originator2')
+        ]));
 
 
     }
-
-
-
 
 
 }

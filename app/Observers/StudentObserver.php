@@ -15,8 +15,9 @@ use App\Notifications\StudentCreatedNotification;
 use App\Student;
 use App\User;
 use Illuminate\Support\Facades\Mail;
-use TextUtils;
-
+use Illuminate\Support\Facades\Log;
+use MercurySeries\Flashy\Flashy;
+use Monolog\Logger;
 
 class StudentObserver
 {
@@ -49,40 +50,31 @@ class StudentObserver
 
         $user->save();
 
-        // Sending to notify student creation en give credentials
+        // Sending to notify student creation and give credentials
 
-        $student->notify( new StudentCreatedNotification( $student, $password) );
+        try {
+            $student->notify(new StudentCreatedNotification($student, $password));
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+        }
 
         // Sending welcome mail to each specified mail
 
         $emails = explode(',', trim( $student->emails ) );
 
+        Log::info($emails);
+
         if( count($emails) > 0 )
         {
-
-
             foreach ($emails as $email)
             {
-
-
                 if ( ! empty($email) )
                 {
-
-
                     Mail::to( $email )
-
                         ->send( new Welcome( $student, $password ) );
-
-
                 }
-
-
             }
-
-
         }
-
-
     }
 
 

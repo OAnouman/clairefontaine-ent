@@ -56,7 +56,7 @@ class ClassroomRequest extends FormRequest
 
             'school_year_id' => 'required|integer',
 
-            'teacher_id' => 'required|integer'
+            'teacher_id' => 'integer'
 
 
         ];

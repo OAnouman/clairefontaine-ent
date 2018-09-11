@@ -67,7 +67,7 @@ class ClassroomRepository extends Repository
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
 
-    public function withSchoolYear( SchoolYear $schoolYear )
+    public function getClassroomsOfYear(SchoolYear $schoolYear)
     {
 
 

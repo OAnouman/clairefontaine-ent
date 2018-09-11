@@ -6,7 +6,7 @@ namespace App;
 class Schoolarship extends Model
 {
 
-    protected  $fillable  =  [
+    protected $fillable = [
 
         'price',
 
@@ -14,7 +14,7 @@ class Schoolarship extends Model
 
         'registration_fees',
 
-        ];
+    ];
 
     public function level()
     {

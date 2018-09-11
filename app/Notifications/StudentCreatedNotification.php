@@ -86,20 +86,22 @@ class StudentCreatedNotification extends Notification implements ShouldQueue
         ];
     }
 
+    /**
+     * @param $notifiable
+     * @return Sms
+     */
     public function toSmsPro($notifiable)
     {
 
 
-        return (new sms)
+        return (new Sms())
 
             ->recipientStudent( $this->student )
-
-            ->body( 'Cher parent, l\'inscription de ' . urlencode($this->student->firstname) .
+            ->body('L\'inscription de ' . urlencode($this->student->firstname) .
                 ' a bien ete effectuee. Vous trouverez ci-dessous ses identifiants de connexion a la plateforme ' .
                 'Clairefontaine ENT : ' . '%0ALogin : ' . $this->student->username . '%0AMot de passe : ' . $this->password .
                 '%0ARendez-vous sur ' . url( '/' ) )
-
-            ->originator( env( 'MTN_ORIGINATOR_2' ) );
+            ->originator(config('smspro.originator2'));
 
 
     }

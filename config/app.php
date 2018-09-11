@@ -246,4 +246,6 @@ return [
         'TextUtils' => App\Utils\TextUtils::class,
     ],
 
+    'mail_header_title' => 'Ecole Internationale Clairefontaine'
+
 ];

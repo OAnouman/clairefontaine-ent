@@ -8,7 +8,7 @@ use Carbon\Carbon;
 
 class Evaluation extends Model
 {
-
+    protected $table = 'evaluations';
 
     public function subject()
     {
@@ -29,17 +29,6 @@ class Evaluation extends Model
 
     }
 
-
-    public function grades ()
-    {
-
-
-        return $this->hasMany(Grade::class);
-
-
-    }
-
-
     public function classroom ()
     {
 
@@ -48,7 +37,6 @@ class Evaluation extends Model
 
 
     }
-
 
     public function getEvaluationDateAttribute( $value )
     {
@@ -63,7 +51,6 @@ class Evaluation extends Model
 
     }
 
-
     public function topStudents ()
     {
 
@@ -75,6 +62,14 @@ class Evaluation extends Model
 
     }
 
+    public function grades()
+    {
+
+
+        return $this->hasMany(Grade::class);
+
+
+    }
 
     public function worstStudents ()
     {

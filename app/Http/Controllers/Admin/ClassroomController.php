@@ -67,7 +67,7 @@ class ClassroomController extends Controller
 
             // Filter classroom by school year and paginate
 
-            $classrooms = $this->classroomRepository->withSchoolYear( $schoolYear )
+            $classrooms = $this->classroomRepository->getClassroomsOfYear($schoolYear)
                                                     ->paginate();
 
         }
